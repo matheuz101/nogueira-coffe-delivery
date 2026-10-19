@@ -128,3 +128,130 @@ if (menuHeading && 'IntersectionObserver' in window && !reducedMotion.matches) {
         }
     });
 }
+
+const traditionSection = document.querySelector('.tradition');
+
+const menuSelectionBody = document.querySelector('.menu-selection-body');
+const siteFooter = document.querySelector('.site-footer');
+
+if (menuSelectionBody) {
+    let surfaceFrame;
+
+    function updateHeaderSurface() {
+        surfaceFrame = undefined;
+        const panel = menuSelectionBody.getBoundingClientRect();
+        const headerTop = header.getBoundingClientRect().top;
+        const footer = siteFooter?.getBoundingClientRect();
+        header.dataset.surface = footer && footer.top <= headerTop && footer.bottom > headerTop
+            ? 'black'
+            : panel.top <= headerTop && panel.bottom > headerTop ? 'white' : 'default';
+    }
+
+    function queueHeaderSurface() {
+        if (surfaceFrame === undefined) surfaceFrame = requestAnimationFrame(updateHeaderSurface);
+    }
+
+    window.addEventListener('scroll', queueHeaderSurface, { passive: true });
+    window.addEventListener('resize', queueHeaderSurface);
+    document.fonts.ready.then(queueHeaderSurface);
+    queueHeaderSurface();
+}
+
+if (traditionSection) {
+    const stage = traditionSection.querySelector('.tradition-stage');
+    const title = traditionSection.querySelector('#tradition-title');
+    const ring = traditionSection.querySelector('.tradition-highlight');
+    const foreground = traditionSection.querySelector('.tradition-foreground');
+    const video = traditionSection.querySelector('video');
+    const videoWrap = traditionSection.querySelector('.tradition-video-wrap');
+    const videoToggle = traditionSection.querySelector('.tradition-video-toggle');
+    const pauseIcon = videoToggle.querySelector('.tradition-pause-icon');
+    const playIcon = videoToggle.querySelector('.tradition-play-icon');
+    let frame;
+    let videoInView = false;
+    let userPausedVideo = false;
+
+    function updateTraditionFrame() {
+        frame = undefined;
+        const motionEnabled = traditionSection.dataset.motion === 'enabled';
+        const viewportHeight = stage.clientHeight;
+        const travel = Math.max(1, traditionSection.offsetHeight - viewportHeight);
+        const progress = motionEnabled
+            ? Math.min(1, Math.max(0, -traditionSection.getBoundingClientRect().top / travel))
+            : 0;
+
+        traditionSection.style.setProperty('--tradition-shift', `${-progress * viewportHeight}px`);
+        traditionSection.style.setProperty('--tradition-controls-opacity', motionEnabled ? String(Math.min(1, progress / 0.6)) : '1');
+        foreground.inert = motionEnabled && progress >= 0.99;
+        videoToggle.inert = motionEnabled && progress < 0.1;
+    }
+
+    function queueTraditionFrame() {
+        if (frame === undefined) frame = requestAnimationFrame(updateTraditionFrame);
+    }
+
+    function updateVideoButton() {
+        videoToggle.setAttribute('aria-label', video.paused ? 'Reproduzir vídeo' : 'Pausar vídeo');
+        pauseIcon.toggleAttribute('hidden', video.paused);
+        playIcon.toggleAttribute('hidden', !video.paused);
+    }
+
+    function syncTraditionPlayback() {
+        if (videoInView && !reducedMotion.matches && !userPausedVideo) {
+            video.play().catch(updateVideoButton);
+        } else {
+            video.pause();
+        }
+    }
+
+    function syncTraditionMotion() {
+        traditionSection.dataset.motion = reducedMotion.matches ? 'disabled' : 'enabled';
+        if (reducedMotion.matches) {
+            traditionSection.dataset.textRevealed = 'true';
+            traditionSection.dataset.ringRevealed = 'true';
+        }
+        queueTraditionFrame();
+        syncTraditionPlayback();
+    }
+
+    video.muted = true;
+    video.controls = false;
+    video.tabIndex = -1;
+    videoToggle.hidden = false;
+    video.addEventListener('play', updateVideoButton);
+    video.addEventListener('pause', updateVideoButton);
+    videoToggle.addEventListener('click', () => {
+        userPausedVideo = !video.paused;
+        if (video.paused) video.play().catch(updateVideoButton);
+        else video.pause();
+    });
+
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            for (const entry of entries) {
+                if (!entry.isIntersecting) continue;
+                if (entry.target === title) traditionSection.dataset.textRevealed = 'true';
+                if (entry.target === ring) traditionSection.dataset.ringRevealed = 'true';
+                observer.unobserve(entry.target);
+            }
+        }, { threshold: 0.01 });
+        revealObserver.observe(title);
+        revealObserver.observe(ring);
+
+        const videoObserver = new IntersectionObserver(([entry]) => {
+            videoInView = entry.isIntersecting;
+            syncTraditionPlayback();
+        }, { threshold: 0.01 });
+        videoObserver.observe(videoWrap);
+    } else {
+        traditionSection.dataset.textRevealed = 'true';
+        traditionSection.dataset.ringRevealed = 'true';
+    }
+
+    window.addEventListener('scroll', queueTraditionFrame, { passive: true });
+    window.addEventListener('resize', queueTraditionFrame);
+    reducedMotion.addEventListener('change', syncTraditionMotion);
+    document.fonts.ready.then(queueTraditionFrame);
+    syncTraditionMotion();
+    updateVideoButton();
+}
