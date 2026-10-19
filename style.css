@@ -1,6 +1,583 @@
+:root {
+    --color-background: #FBF5EE;
+    --color-primary: #3E2723;
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --header-height: 64px;
+    --header-margin-x: clamp(24px, 2.916667vw, 56px);
+    --header-margin-y: 32px;
+    --brand-easing: cubic-bezier(0.49, 0.03, 0.13, 0.99);
+}
+
+::selection {
+    color: #FFFFFF;
+    background-color: #3E2723;
+}
+
+@font-face {
+    font-family: "Anton";
+    src: url("fonts/Anton-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("fonts/Inter-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Just Me Again Down Here";
+    src: url("fonts/JustMeAgainDownHere-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    min-width: 280px;
+    min-height: 100svh;
+    background: var(--color-background);
+    color: var(--color-black);
+    font-family: "Inter", Arial, sans-serif;
+}
+
+.site-header {
+    position: fixed;
+    inset: var(--header-margin-y) var(--header-margin-x) auto;
+    z-index: 100;
+}
+
+/* Cover content after it crosses the top edge of the fixed navigation. */
+.site-header::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto;
+    height: var(--header-margin-y);
+    background: var(--color-background);
+    pointer-events: none;
+}
+
+.header-nav {
+    display: grid;
+    grid-template-columns: minmax(342px, 1fr) minmax(240px, 1.8fr) minmax(342px, 1fr);
+    min-height: var(--header-height);
+    border: 1px solid var(--color-black);
+    background: var(--color-white);
+}
+
+.header-menu,
+.header-actions,
+.header-categories,
+.header-categories li {
+    display: flex;
+    min-width: 0;
+}
+
+.header-menu { grid-column: 1; grid-row: 1; }
+.header-categories { width: 100%; list-style: none; }
+.header-categories li { flex: 1; border-right: 1px solid var(--color-black); }
+
+.header-link,
+.header-brand,
+.menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: calc(var(--header-height) - 2px);
+    border: 0;
+    border-radius: 0;
+    color: inherit;
+    font: inherit;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.header-link {
+    position: relative;
+    flex: 1;
+    padding: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.header-link::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 2px;
+    background: transparent;
+    transition: background-color 300ms;
+}
+
+.header-link:hover::after,
+.header-link:focus-visible::after { background: var(--color-primary); }
+
+.header-brand {
+    position: relative;
+    grid-column: 2;
+    grid-row: 1;
+    overflow: hidden;
+    padding: 0 16px;
+    color: var(--color-primary);
+}
+
+.brand-wordmark,
+.brand-tagline {
+    transition: transform 500ms var(--brand-easing);
+    white-space: nowrap;
+}
+
+.brand-wordmark {
+    font-family: "Just Me Again Down Here", cursive;
+    font-size: 36px;
+    line-height: 1;
+}
+
+.brand-tagline {
+    position: absolute;
+    transform: translateY(250%);
+    font-size: 16px;
+    font-style: italic;
+}
+
+.header-actions { grid-column: 3; grid-row: 1; }
+.header-actions > .header-link { border-left: 1px solid var(--color-black); }
+.header-delivery { background: var(--color-primary); color: var(--color-white); }
+.header-delivery:hover::after,
+.header-delivery:focus-visible::after { background: var(--color-white); }
+
+.header-link:focus-visible,
+.header-brand:focus-visible,
+.menu-toggle:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -5px;
+}
+
+.header-delivery:focus-visible { outline-color: var(--color-white); }
+.menu-toggle,
+.header-categories .mobile-catalogue { display: none; }
+
+@media (min-width: 1024px) {
+    .header-menu[hidden] { display: flex; }
+    .header-nav:focus-within .brand-wordmark { transform: translateY(-250%); }
+    .header-nav:focus-within .brand-tagline { transform: translateY(0); }
+}
+
+@media (min-width: 1024px) and (hover: hover) {
+    .header-nav:hover .brand-wordmark { transform: translateY(-250%); }
+    .header-nav:hover .brand-tagline { transform: translateY(0); }
+}
+
+@media (max-width: 1023px) {
+    :root {
+        --header-height: 50px;
+        --header-margin-x: 16px;
+        --header-margin-y: 12px;
+    }
+
+    .header-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .header-brand {
+        grid-column: 1 / -1;
+        min-height: var(--header-height);
+        border-bottom: 1px solid var(--color-black);
+    }
+
+    .brand-wordmark {
+        font-size: 32px;
+        animation: brand-wordmark-slide 30s var(--brand-easing) infinite;
+    }
+
+    .brand-tagline { animation: brand-tagline-slide 30s var(--brand-easing) infinite; }
+
+    .menu-toggle:not([hidden]) {
+        display: flex;
+        grid-column: 1;
+        grid-row: 2;
+        gap: 10px;
+        background: var(--color-white);
+        cursor: pointer;
+    }
+
+    .menu-icon { position: relative; width: 20px; height: 10px; }
+
+    .menu-icon span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--color-black);
+        transition: top 300ms ease-in-out, transform 300ms ease-in-out;
+    }
+
+    .menu-icon span:first-child { top: 1px; }
+    .menu-icon span:last-child { top: 7px; }
+    .menu-toggle[aria-expanded="true"] .menu-icon span:first-child { top: 4px; transform: rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .menu-icon span:last-child { top: 4px; transform: rotate(-45deg); }
+    .header-actions { grid-column: 2; grid-row: 2; }
+    .header-actions .desktop-catalogue { display: none; }
+
+    .header-menu {
+        display: block;
+        grid-column: 1 / -1;
+        grid-row: 3;
+        max-height: calc(100svh - 2 * var(--header-margin-y) - 2 * var(--header-height));
+        overflow-y: auto;
+        border-top: 1px solid var(--color-black);
+        transform-origin: top;
+    }
+
+    .header-menu[hidden] { display: none; }
+    .header-menu[data-opening] { animation: menu-slide-down 300ms ease-out; }
+    .header-menu[data-closing] { animation: menu-slide-down 300ms ease-out reverse forwards; pointer-events: none; }
+    .header-categories { flex-direction: column; }
+
+    .header-categories li,
+    .header-categories .mobile-catalogue {
+        display: flex;
+        flex: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--color-black);
+    }
+
+    .header-categories li:last-child { border-bottom: 0; }
+    .header-categories .header-link { min-height: 64px; font-size: 16px; }
+}
+
+@keyframes brand-wordmark-slide {
+    0%, 20%, 80%, 100% { transform: translateY(0); }
+    30%, 70% { transform: translateY(-250%); }
+}
+
+@keyframes brand-tagline-slide {
+    0%, 20%, 80%, 100% { transform: translateY(250%); }
+    30%, 70% { transform: translateY(0); }
+}
+
+@keyframes menu-slide-down {
+    from { clip-path: inset(0 0 100% 0); }
+    to { clip-path: inset(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-header *,
+    .site-header *::after { animation: none !important; transition: none !important; }
+    .header-nav .brand-wordmark { transform: none; }
+    .header-nav .brand-tagline { display: none; }
+}
+
+.home-content {
+    padding-top: calc(var(--header-margin-y) + var(--header-height) + 9px);
+    padding-inline: var(--header-margin-x);
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 550px;
+    border: 1px solid var(--color-black);
+    background: var(--color-background);
+}
+
+.home-panels {
+    isolation: isolate;
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+    .home-panels > .hero {
+        position: sticky;
+        top: calc(var(--header-margin-y) + var(--header-height) - 1px);
+    }
+
+    /* Keyboard navigation keeps focused controls clear of overlapping panels. */
+    .home-panels:has(:focus-visible) > .hero {
+        position: relative;
+        top: auto;
+    }
+}
+
+.hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    padding: 12px 32px 64px;
+    text-align: center;
+    background-color: #FFFFFF;
+}
+
+.hero-eyebrow {
+    color: var(--color-primary);
+    font-family: "Just Me Again Down Here", cursive;
+    font-size: 45px;
+    line-height: 1.1;
+}
+
+.hero-title {
+    font-family: "Anton", Impact, sans-serif;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.hero-title span { display: block; }
+
+.hero-description {
+    max-width: 460px;
+    margin-top: 12px;
+    font-size: 18px;
+    line-height: 1.25;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    margin-top: 60px;
+}
+
+.hero-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+    width: 220px;
+    max-width: 100%;
+    padding: 14px 20px;
+    border: 1px solid var(--color-black);
+    color: var(--color-black);
+    font-size: 18px;
+    line-height: 1.25;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hero-button-primary {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.hero-button-outline { background: var(--color-white); }
+.hero-button-outline:hover,
+.hero-button-outline:focus-visible {
+    background: var(--color-black);
+    color: var(--color-background);
+}
+.hero-button:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 4px; text-decoration: underline; }
+
+.hero-media {
+    position: relative;
+    min-width: 0;
+    min-height: 100%;
+    overflow: hidden;
+    border-left: 1px solid var(--color-black);
+    background: var(--color-white);
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 60% center;
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .hero-copy { padding-inline: 24px; }
+    .hero-eyebrow { font-size: 40px; }
+    .hero-title { font-size: 56px; }
+    .hero-description { font-size: 16px; }
+    .hero-actions { gap: 16px; }
+    .hero-button { flex: 1; font-size: 16px; padding-inline: 12px; }
+}
+
+@media (max-width: 1023px) {
+    .home-content { padding-top: calc(var(--header-margin-y) + 2 * var(--header-height) + 9px); }
+    .hero { grid-template-columns: minmax(0, 1fr); }
+    .hero-copy { padding: 32px 24px 40px; }
+    .hero-eyebrow { font-size: clamp(32px, 6vw, 45px); }
+    .hero-title { font-size: clamp(42px, 8vw, 64px); line-height: 1.35; }
+    .hero-description { margin-top: 20px; font-size: 16px; line-height: 1.45; }
+    .hero-desktop-break { display: none; }
+    .hero-actions { gap: 12px; margin-top: 28px; }
+    .hero-button { min-height: 52px; font-size: 16px; }
+    .hero-media { min-height: 0; aspect-ratio: 4 / 3; border-top: 1px solid var(--color-black); border-left: 0; }
+}
+
+@media (max-width: 359px) {
+    .hero-copy { padding-inline: 16px; }
+    .hero-title { font-size: 36px; }
+    .hero-eyebrow { font-size: 30px; }
+}
+
+.hero--welcome {
+    border-top: 0;
+}
+
+.hero--welcome .hero-copy {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.hero--welcome .hero-media {
+    grid-column: 1;
+    grid-row: 1;
+    border-right: 1px solid var(--color-black);
+    border-left: 0;
+}
+
+.hero--welcome .hero-image {
+    object-position: center;
+}
+
+.hero--welcome .hero-button {
+    flex: 0 1 300px;
+    width: 300px;
+}
+
+.menu-showcase {
+    margin-inline: calc(-1 * var(--header-margin-x));
+    padding: 128px var(--header-margin-x) 80px;
+    overflow: clip;
+    background: var(--color-background);
+}
+
+.menu-showcase-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.menu-heading {
+    width: 100%;
+    transition: opacity 600ms ease-out, filter 600ms ease-out;
+}
+
+.menu-heading[data-reveal="pending"] {
+    opacity: 0;
+    filter: blur(3px);
+}
+
+.menu-eyebrow {
+    color: var(--color-primary);
+    font-family: "Just Me Again Down Here", cursive;
+    font-size: clamp(40px, 4.444444vw, 64px);
+    line-height: 1.0625;
+}
+
+.menu-showcase-title {
+    font-family: "Anton", Impact, sans-serif;
+    font-size: clamp(36px, 4.444444vw, 64px);
+    font-weight: 400;
+    line-height: 1.375;
+    text-wrap: balance;
+}
+
+.menu-showcase-description {
+    max-width: 720px;
+    margin-top: 60px;
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.menu-showcase-button {
+    width: 350px;
+    margin-top: 60px;
+}
+
+.menu-cards {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 220px;
+    list-style: none;
+    isolation: isolate;
+}
+
+.menu-card {
+    position: relative;
+    flex: 0 0 27%;
+    min-width: 0;
+    aspect-ratio: 366 / 305;
+    padding: 10px 10px 50px;
+    background: var(--color-white);
+    transform: translateY(var(--card-offset, 0px)) rotate(var(--card-angle));
+}
+
+.menu-card + .menu-card { margin-left: -2.666667%; }
+.menu-card:nth-child(1) { --card-angle: -5deg; --card-offset: 8px; z-index: 1; }
+.menu-card:nth-child(2) { --card-angle: 4deg; z-index: 3; }
+.menu-card:nth-child(3) { --card-angle: -1deg; --card-offset: 6px; z-index: 2; }
+.menu-card:nth-child(4) { --card-angle: 7deg; z-index: 1; }
+
+.menu-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .menu-card {
+        transition: transform 300ms var(--brand-easing);
+    }
+
+    .menu-card:hover {
+        z-index: 4;
+        transform: translateY(calc(var(--card-offset, 0px) - 12px)) rotate(0deg);
+    }
+}
+
+@media (max-width: 767px) {
+    .menu-showcase { padding-top: 72px; padding-bottom: 56px; }
+    .menu-heading { padding-inline: 8px; }
+    .menu-showcase-title { font-size: clamp(28px, 7.5vw, 48px); line-height: 1.4; }
+    .menu-showcase-description { margin-top: 28px; font-size: 18px; line-height: 1.45; }
+    .menu-desktop-break { display: none; }
+    .menu-showcase-button { margin-top: 32px; max-width: 300px; }
+    .menu-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 0; margin-top: 80px; padding-inline: 12px; }
+    .menu-card { padding: 6px 6px 26px; }
+    .menu-card + .menu-card { margin-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .menu-heading { opacity: 1 !important; filter: none !important; transition: none; }
+}
+
+@media (max-width: 1023px) {
+    .hero--welcome .hero-copy {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .hero--welcome .hero-title {
+        font-size: clamp(24px, 8.5vw, 64px);
+    }
+
+    .hero--welcome .hero-media {
+        grid-column: 1;
+        grid-row: 2;
+        border-right: 0;
+    }
 }
 

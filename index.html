@@ -1,29 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FBF5EE">
     <title>Nogueira Coffee</title>
+    <link rel="preload" href="fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="fonts/JustMeAgainDownHere-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="fonts/Anton-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="vendor/lenis/lenis.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="vendor/lenis/lenis.min.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
-
-        <!--home do bagulho-->
 <body>
-    <div id="" class="">
-
-        <header id="" class="">
-            <div id="" class="">
-                <nav class="">
-                    
-                </nav>
+    <header class="site-header">
+        <nav class="header-nav" aria-label="Navegação principal">
+            <div class="header-menu" id="header-menu">
+                <ul class="header-categories">
+                    <!-- Preencha os href e remova aria-disabled ao ativar os links. -->
+                    <li><a class="header-link" href="" aria-disabled="true">Pedir cafés</a></li>
+                    <li><a class="header-link" href="" aria-disabled="true">Pedir lanches</a></li>
+                    <li><a class="header-link" href="" aria-disabled="true">Pedir bebidas</a></li>
+                    <li class="mobile-catalogue"><a class="header-link" href="" aria-disabled="true">Ver cardápio</a></li>
+                </ul>
             </div>
-        </header>
 
-    </div>
+            <!-- Nome manuscrito provisório, conforme aprovado para esta etapa. -->
+            <a class="header-brand" href="./" aria-label="Nogueira Coffee — página inicial" aria-current="page">
+                <span class="brand-wordmark" aria-hidden="true">NOGUEIRA COFFE</span>
+                <span class="brand-tagline" aria-hidden="true">Uma pausa com sabor</span>
+            </a>
 
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="header-menu" hidden>
+                <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
+                <span>Menu</span>
+            </button>
 
+            <div class="header-actions">
+                <a class="header-link desktop-catalogue" href="" aria-disabled="true">Ver cardápio</a>
+                <a class="header-link header-delivery" href="" aria-disabled="true">Pedir no delivery</a>
+            </div>
+        </nav>
+    </header>
 
+    <main id="main-content" class="home-content">
+        <div class="home-panels">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="hero-eyebrow">Uma pausa com sabor</p>
+                <h1 id="hero-title" class="hero-title">
+                    <span>SEU CAFÉ.</span>
+                    <span>DO SEU JEITO.</span>
+                </h1>
+                <p class="hero-description">
+                    cafés quentes, lanches e pequenos prazeres<br class="hero-desktop-break">
+                    para acompanhar seu dia. Escolha seus<br class="hero-desktop-break">
+                    favoritos e receba onde estiver.
+                </p>
+                <div class="hero-actions">
+                    <!-- Preencha os href e remova aria-disabled ao ativar os links. -->
+                    <a class="hero-button hero-button-primary" href="" aria-disabled="true">Pedir no delivery</a>
+                    <a class="hero-button hero-button-outline" href="" aria-disabled="true">Explorar cardápio</a>
+                </div>
+            </div>
+            <div class="hero-media">
+                <img class="hero-image" src="imgs/img-secao1.webp" width="2000" height="1334"
+                     alt="Interior de uma cafeteria, com mesas de madeira e uma barista preparando café no balcão."
+                     fetchpriority="high">
+            </div>
+        </section>
+        <section class="hero hero--welcome" aria-labelledby="welcome-title">
+            <div class="hero-copy">
+                <p class="hero-eyebrow">Sinta-se em casa</p>
+                <h2 id="welcome-title" class="hero-title">
+                    <span>A SUA PAUSA.</span>
+                    <span>ONDE VOCÊ ESTIVER.</span>
+                </h2>
+                <p class="hero-description">
+                    Do primeiro café ao lanche da tarde,<br class="hero-desktop-break">
+                    a Nogueira Coffee acompanha o seu ritmo.<br class="hero-desktop-break">
+                    Peça pelo delivery ou escolha retirar.
+                </p>
+                <div class="hero-actions">
+                    <!-- Preencha o href e remova aria-disabled ao ativar o link. -->
+                    <a class="hero-button hero-button-primary" href="" aria-disabled="true">Escolher meu pedido</a>
+                </div>
+            </div>
+            <div class="hero-media">
+                <img class="hero-image" src="imgs/img-secao2.webp" width="2000" height="1334"
+                     alt="Fachada de uma cafeteria com janelas amplas e pessoas nas mesas da área externa."
+                     loading="lazy" decoding="async">
+            </div>
+        </section>
+        </div>
+        <section class="menu-showcase" aria-labelledby="menu-showcase-title">
+            <div class="menu-showcase-copy">
+                <div class="menu-heading">
+                    <p class="menu-eyebrow">Encontre seu favorito</p>
+                    <h2 id="menu-showcase-title" class="menu-showcase-title">UM CARDÁPIO. MUITAS POSSIBILIDADES.</h2>
+                </div>
+                <p class="menu-showcase-description">
+                    Do pão de queijo ao café expresso: escolha sabores<br class="menu-desktop-break">
+                    que combinam com a sua próxima pausa.
+                </p>
+                <!-- Preencha o href e remova aria-disabled ao ativar o link. -->
+                <a class="hero-button hero-button-primary menu-showcase-button" href="" aria-disabled="true">Ver opções no delivery</a>
+            </div>
 
-
-<script src="script.js"></script>
+            <ul class="menu-cards" aria-label="Sabores do nosso cardápio">
+                <li class="menu-card">
+                    <img src="imgs/first-card.webp" width="1400" height="1400"
+                         alt="Sanduíche com ovo, queijo, bacon e folhas em pão com gergelim."
+                         loading="lazy" decoding="async">
+                </li>
+                <li class="menu-card">
+                    <img src="imgs/second-card.webp" width="1334" height="1334"
+                         alt="Waffle servido com ovos, creme, lascas de queijo e ervas."
+                         loading="lazy" decoding="async">
+                </li>
+                <li class="menu-card">
+                    <img src="imgs/thrid-card.webp" width="1333" height="1333"
+                         alt="Prato com ovo de gema macia sobre uma porção salgada, acompanhado de folhas."
+                         loading="lazy" decoding="async">
+                </li>
+                <li class="menu-card">
+                    <img src="imgs/fourth-card.webp" width="1334" height="2000"
+                         alt="Mesa com sanduíches, um café expresso e um café com leite."
+                         loading="lazy" decoding="async">
+                </li>
+            </ul>
+        </section>
+    </main>
 </body>
 </html>
