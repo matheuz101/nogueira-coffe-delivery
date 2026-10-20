@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FBF5EE">
+    <title>Sign up — Nogueira Coffe</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <main class="signup-page">
+        <a class="signup-brand" href="../../index.html" aria-label="Nogueira Coffe — home">
+            <img src="../../imgs/nogueira-logo.png" alt="Nogueira Café — desde 2026" width="108" height="108">
+        </a>
+
+        <h1 class="visually-hidden">Create your account</h1>
+        <form id="signup-form" class="signup-form" action="/api/auth/signup" method="post">
+            <div class="signup-field">
+                <label class="visually-hidden" for="first-name">First name</label>
+                <input id="first-name" name="firstName" type="text" autocomplete="given-name" placeholder="Enter first name" required maxlength="100">
+            </div>
+            <div class="signup-field">
+                <label class="visually-hidden" for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="Enter email" required maxlength="254" spellcheck="false" autocapitalize="none">
+            </div>
+            <div class="signup-field">
+                <label class="visually-hidden" for="phone">Phone number</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Enter phone number" required maxlength="25">
+            </div>
+            <div class="signup-field">
+                <label class="visually-hidden" for="password">Password</label>
+                <input id="password" name="password" type="password" autocomplete="new-password" placeholder="Enter password" required minlength="8">
+            </div>
+            <div class="signup-field">
+                <label class="visually-hidden" for="confirm-password">Confirm password</label>
+                <input id="confirm-password" name="passwordConfirmation" type="password" autocomplete="new-password" placeholder="Confirm password" required minlength="8">
+            </div>
+            <button class="signup-button" type="button">Sign up</button>
+        </form>
+    </main>
+</body>
+</html>
