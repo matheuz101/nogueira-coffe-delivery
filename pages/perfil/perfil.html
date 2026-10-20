@@ -1,13 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil  - Nogueira Coffe</title>
+    <meta name="theme-color" content="#FBF5EE">
+    <title>Minha Conta - Nogueira Coffe</title>
     <link rel="stylesheet" href="perfil.css">
-    <script src="perfil.js" defer></script>
 </head>
 <body>
-    
+    <header class="account-header">
+        <h1>Minha Conta</h1>
+    </header>
+
+    <div class="account-layout">
+        <aside class="account-sidebar">
+            <nav class="account-nav" aria-label="Navegação da conta">
+                <a class="account-nav-back" href="../principal/principal.html">Voltar</a>
+                <a class="account-nav-personal" href="#dados-pessoais">Dados pessoais</a>
+                <a class="account-nav-security" href="#seguranca">Segurança</a>
+            </nav>
+        </aside>
+
+        <main class="account-main">
+            <section id="dados-pessoais" class="account-section" aria-labelledby="personal-title">
+                <h2 id="personal-title">Informações pessoais</h2>
+
+                <div class="account-avatar">
+                    <span class="avatar-placeholder" role="img" aria-label="Foto de perfil não definida"></span>
+                    <button class="avatar-edit" type="button" aria-label="Alterar foto de perfil">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="m15 5 4 4M4 20l4-1 12-12a2.8 2.8 0 0 0-4-4L4 15l-1 6Z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="account-fields">
+                    <button class="account-row" type="button" aria-label="Editar nome">
+                        <span class="account-row-label">Nome</span>
+                        <span class="account-row-detail">Username</span>
+                    </button>
+                    <button class="account-row" type="button" aria-label="Editar número de telefone">
+                        <span class="account-row-label">Número de Telefone</span>
+                        <span class="account-row-detail">+55 (31) 99999-9999</span>
+                    </button>
+                    <button class="account-row" type="button" aria-label="Editar e-mail">
+                        <span class="account-row-label">E-mail</span>
+                        <span class="account-row-detail">email1234@gmail.com</span>
+                    </button>
+                </div>
+            </section>
+
+            <section id="seguranca" class="account-section account-security" aria-labelledby="security-title">
+                <h2 id="security-title">Segurança</h2>
+                <div class="account-fields">
+                    <button class="account-row account-row-password" type="button" aria-label="Alterar senha">
+                        <span class="account-row-label">Senha</span>
+                        <span class="account-row-detail" aria-hidden="true">••••••••</span>
+                    </button>
+                    <button class="account-row" type="button" aria-label="Configurar verificação em duas etapas">
+                        <span class="account-row-label">Verificação em duas etapas</span>
+                        <span class="account-row-detail">Adicione mais segurança à sua conta com a verificação em duas etapas</span>
+                    </button>
+                    <button class="account-row" type="button" aria-label="Configurar telefone para recuperação">
+                        <span class="account-row-label">Telefone para Recuperação</span>
+                        <span class="account-row-detail">Adicione um número de telefone alternativo para acessar sua conta</span>
+                    </button>
+                </div>
+            </section>
+
+            <button class="account-signout" type="button">Terminar sessão</button>
+        </main>
+    </div>
 </body>
 </html>
