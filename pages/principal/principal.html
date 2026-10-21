@@ -1,13 +1,813 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal - Nogueira Coffe</title>
+    <meta name="theme-color" content="#FBF5EE">
+    <meta name="description" content="Cafés, lanches e bebidas para a sua próxima pausa. Conheça o cardápio Nogueira Coffe.">
+    <title>Cardápio — Nogueira Coffe</title>
+    <link rel="preload" href="../../fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="../../fonts/JustMeAgainDownHere-Regular.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="stylesheet" href="principal.css">
-    <script src="principal.js" defer></script>
 </head>
 <body>
-    
+    <a class="skip-link" href="#cardapio">Ir para o cardápio</a>
+
+    <header class="catalog-header">
+        <div class="catalog-header-inner">
+            <button class="icon-button" type="button" data-open-dialog="user-menu" aria-label="Abrir menu do usuário" aria-haspopup="dialog" aria-controls="user-menu">
+                <span class="menu-symbol" aria-hidden="true"></span>
+            </button>
+            <a class="catalog-brand" href="../../index.html" aria-label="Nogueira Coffe — página inicial">NOGUEIRA COFFE</a>
+            <button class="address-button" type="button" data-action="choose-address">
+                <img src="../../imgs/location_on.svg" width="24" height="24" alt="" aria-hidden="true">
+                <span>Endereço</span>
+            </button>
+            <nav class="header-actions" aria-label="Acesso e carrinho">
+                <button class="icon-button header-cart" type="button" data-open-dialog="cart-panel" aria-label="Abrir carrinho" aria-haspopup="dialog" aria-controls="cart-panel">
+                    <img src="../../imgs/Shopping cart.svg" width="35" height="35" alt="" aria-hidden="true">
+                </button>
+                <a class="header-login" href="../loginSignup/loginSignup.html">Log in</a>
+                <a class="header-signup" href="../signup/signup.html">Sign up</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="catalog-layout">
+        <aside class="catalog-sidebar">
+            <nav class="category-nav" aria-label="Categorias do cardápio">
+                <div class="category-nav-heading">
+                    <h2>Menu</h2>
+                    <p class="opening-hours">08:00 – 17:00</p>
+                </div>
+                <ul>
+                    <li><a href="#destaques">Itens em Destaque</a></li>
+                    <li><a href="#salgados">Salgados e Lanches</a></li>
+                    <li><a href="#cafes">Cafés Quentes</a></li>
+                    <li><a href="#bebidas-geladas">Bebidas Geladas</a></li>
+                    <li><a href="#bebidas-alternativas">Bebidas Alternativas</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="catalog-main" id="cardapio">
+            <h1 class="visually-hidden">Cardápio Nogueira Coffe</h1>
+            <img class="catalog-banner" src="../../imgs/banner-principal.webp" width="2000" height="1334" alt="Equipe preparando e servindo pratos no balcão de uma cafeteria." fetchpriority="high">
+
+            <div class="catalog-search" role="search">
+                <label class="visually-hidden" for="product-search">Buscar no cardápio</label>
+                <img src="../../imgs/Search.svg" width="24" height="24" alt="" aria-hidden="true">
+                <input id="product-search" type="search" name="search" placeholder="Search" autocomplete="off" data-product-search>
+            </div>
+
+            <section class="delivery-card" aria-label="Entrega ou retirada">
+                <div class="delivery-options" role="group" aria-label="Como deseja receber seu pedido?">
+                    <label class="delivery-option">
+                        <input type="radio" name="delivery-mode" value="delivery" checked>
+                        <span>Delivery</span>
+                    </label>
+                    <label class="delivery-option">
+                        <input type="radio" name="delivery-mode" value="pickup">
+                        <span>Pick-up</span>
+                    </label>
+                </div>
+                <address class="delivery-address">
+                    <img src="../../imgs/location_on.svg" width="24" height="24" alt="" aria-hidden="true">
+                    <div>
+                        <p>212 Av. Trompowsky</p>
+                        <p>Florianópolis, Santa Catarina</p>
+                    </div>
+                </address>
+            </section>
+
+            <section class="catalog-section" id="destaques" aria-labelledby="destaques-title">
+                <div class="section-header">
+                    <h2 id="destaques-title">Itens em Destaque</h2>
+                    <div class="section-controls" aria-label="Navegação dos destaques">
+                        <button class="icon-button" type="button" data-action="previous-featured" aria-label="Ver destaques anteriores">←</button>
+                        <button class="icon-button" type="button" data-action="next-featured" aria-label="Ver próximos destaques">→</button>
+                    </div>
+                </div>
+                <div class="product-grid">
+                    <article class="product-card" data-product-id="pao-de-queijo">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="pao-de-queijo" aria-labelledby="destaques-pao-de-queijo-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/paodequeijo.jpg" alt="Pão de Queijo Artesanal" loading="lazy" decoding="async">
+                            <span class="product-badge">#1 most liked</span>
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="pao-de-queijo" aria-label="Adicionar Pão de Queijo Artesanal ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="destaques-pao-de-queijo-title" data-product-name>Pão de Queijo Artesanal</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="6.50" data-product-price>R$ 6,50</data>
+                                <span class="product-rating" aria-label="90 por cento de aprovação, 20 avaliações">90% (20)</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="cafe-expresso">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="cafe-expresso" aria-labelledby="destaques-cafe-expresso-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/cafe-expresso.jpg" alt="Café Expresso" loading="lazy" decoding="async">
+                            <span class="product-badge">#2 most liked</span>
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="cafe-expresso" aria-label="Adicionar Café Expresso ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="destaques-cafe-expresso-title" data-product-name>Café Expresso</h3>
+                            <p class="visually-hidden" data-product-description>Café encorpado e intenso, extraído na hora com grãos selecionados</p>
+                            <div class="product-meta">
+                                <data class="product-price" value="7.50" data-product-price>R$ 7,50</data>
+                                <span class="product-rating" aria-label="90 por cento de aprovação, 35 avaliações">90% (35)</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="muffin-de-morango">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="muffin-de-morango" aria-labelledby="destaques-muffin-de-morango-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/muffin.jpg" alt="Muffin de Morango" loading="lazy" decoding="async">
+                            <span class="product-badge">#3 most liked</span>
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="muffin-de-morango" aria-label="Adicionar Muffin de Morango ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="destaques-muffin-de-morango-title" data-product-name>Muffin de Morango</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="17.20" data-product-price>R$ 17,20</data>
+                                <span class="product-rating" aria-label="100 por cento de aprovação, 15 avaliações">100% (15)</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="croissant-de-nutella">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="croissant-de-nutella" aria-labelledby="destaques-croissant-de-nutella-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/croissant.jpg" alt="Croissant de Nutella" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="croissant-de-nutella" aria-label="Adicionar Croissant de Nutella ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="destaques-croissant-de-nutella-title" data-product-name>Croissant de Nutella</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="18.50" data-product-price>R$ 18,50</data>
+                                <span class="product-rating" aria-label="92 por cento de aprovação, 12 avaliações">92% (12)</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="catalog-section" id="salgados" aria-labelledby="salgados-title">
+                <div class="section-header">
+                    <h2 id="salgados-title">Salgados e Lanches</h2>
+                </div>
+                <div class="product-grid product-grid--horizontal">
+                    <article class="product-card product-card--horizontal" data-product-id="panquecas">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="panquecas" aria-labelledby="salgados-panquecas-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-info">
+                            <h3 class="product-name" id="salgados-panquecas-title" data-product-name>Panquecas</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="23.50" data-product-price>R$ 23,50</data>
+                            </div>
+                            <p class="product-description" data-product-description>Panqueca fofinha e macia para o café da manhã</p>
+                        </div>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/panqueca.jpg" alt="Panquecas" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="panquecas" aria-label="Adicionar Panquecas ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                    </article>
+                    <article class="product-card product-card--horizontal" data-product-id="bolinho-de-batata">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="bolinho-de-batata" aria-labelledby="salgados-bolinho-de-batata-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-info">
+                            <h3 class="product-name" id="salgados-bolinho-de-batata-title" data-product-name>Bolinho de Batata</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="18.50" data-product-price>R$ 18,50</data>
+                            </div>
+                            <p class="product-description" data-product-description>Batatas raladas caseiras com molho de geleia de pimenta</p>
+                        </div>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/bolinho-batata.jpg" alt="Bolinho de Batata" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="bolinho-de-batata" aria-label="Adicionar Bolinho de Batata ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                    </article>
+                    <article class="product-card product-card--horizontal" data-product-id="torrada-com-abacate">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="torrada-com-abacate" aria-labelledby="salgados-torrada-com-abacate-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-info">
+                            <h3 class="product-name" id="salgados-torrada-com-abacate-title" data-product-name>Torrada com Abacate</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="12.50" data-product-price>R$ 12,50</data>
+                            </div>
+                            <p class="product-description" data-product-description>Torrada de abacate com pico de gallo</p>
+                        </div>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/torrada-avocado.jpg" alt="Torrada com Abacate" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="torrada-com-abacate" aria-label="Adicionar Torrada com Abacate ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                    </article>
+                    <article class="product-card product-card--horizontal" data-product-id="bolinho-de-frango">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="bolinho-de-frango" aria-labelledby="salgados-bolinho-de-frango-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-info">
+                            <h3 class="product-name" id="salgados-bolinho-de-frango-title" data-product-name>Bolinho de frango</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="27.50" data-product-price>R$ 27,50</data>
+                            </div>
+                            <p class="product-description" data-product-description>Bolinho recheado com frango desfiado e queijo acompanhado de ovo, tomate e batata</p>
+                        </div>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/bolinho-frango.jpg" alt="Bolinho de frango" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="bolinho-de-frango" aria-label="Adicionar Bolinho de frango ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                    </article>
+                    <article class="product-card product-card--horizontal" data-product-id="sanduiche-natural">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="sanduiche-natural" aria-labelledby="salgados-sanduiche-natural-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-info">
+                            <h3 class="product-name" id="salgados-sanduiche-natural-title" data-product-name>Sanduíche Natural</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="15.80" data-product-price>R$ 15,80</data>
+                            </div>
+                            <p class="product-description" data-product-description>Pernil desfiado, picles, mostarda, maionese e queijo no pão de forma</p>
+                        </div>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/sanduiche-natural.jpg" alt="Sanduíche Natural" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="sanduiche-natural" aria-label="Adicionar Sanduíche Natural ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                    </article>
+                    <article class="product-card product-card--horizontal" data-product-id="pasteis-sortidos">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="pasteis-sortidos" aria-labelledby="salgados-pasteis-sortidos-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-info">
+                            <h3 class="product-name" id="salgados-pasteis-sortidos-title" data-product-name>Pastéis sortidos</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="23.50" data-product-price>R$ 23,50</data>
+                            </div>
+                            <p class="product-description" data-product-description>15 pastéis com sabores sortidos entre: frango, carne, queijo, bacon, tomate, pizza</p>
+                        </div>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/pasteis.jpg" alt="Pastéis sortidos" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="pasteis-sortidos" aria-label="Adicionar Pastéis sortidos ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                    </article>
+                    <article class="product-card product-card--horizontal" data-product-id="empanadas">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="empanadas" aria-labelledby="salgados-empanadas-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-info">
+                            <h3 class="product-name" id="salgados-empanadas-title" data-product-name>Empanadas</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="30.80" data-product-price>R$ 30,80</data>
+                            </div>
+                            <p class="product-description" data-product-description>6 empanadas de frango, queijo com tomate, carne, bacon e milho, pizza, vegetariana</p>
+                        </div>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/empanadas.jpg" alt="Empanadas" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="empanadas" aria-label="Adicionar Empanadas ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                    </article>
+                    <article class="product-card product-card--horizontal" data-product-id="empadas">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="empadas" aria-labelledby="salgados-empadas-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-info">
+                            <h3 class="product-name" id="salgados-empadas-title" data-product-name>Empadas</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="18.00" data-product-price>R$ 18,00</data>
+                            </div>
+                            <p class="product-description" data-product-description>Empadas assadas com massa amanteigada e recheio cremoso</p>
+                        </div>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/empadas.jpg" alt="Empadas" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="empadas" aria-label="Adicionar Empadas ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="catalog-section" id="cafes" aria-labelledby="cafes-title">
+                <div class="section-header">
+                    <h2 id="cafes-title">Cafés Quentes</h2>
+                </div>
+                <div class="product-grid product-grid--horizontal">
+                    <article class="product-card product-card--horizontal" data-product-id="cafe-expresso">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="cafe-expresso" aria-labelledby="cafes-cafe-expresso-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-info">
+                            <h3 class="product-name" id="cafes-cafe-expresso-title" data-product-name>Café Expresso</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="7.50" data-product-price>R$ 7,50</data>
+                            </div>
+                            <p class="product-description" data-product-description>Café encorpado e intenso, extraído na hora com grãos selecionados</p>
+                        </div>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/cafe-expresso.jpg" alt="Café Expresso" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="cafe-expresso" aria-label="Adicionar Café Expresso ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                    </article>
+                    <article class="product-card product-card--horizontal" data-product-id="cappuccino-tradicional">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="cappuccino-tradicional" aria-labelledby="cafes-cappuccino-tradicional-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-info">
+                            <h3 class="product-name" id="cafes-cappuccino-tradicional-title" data-product-name>Cappuccino Tradicional</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="14.00" data-product-price>R$ 14,00</data>
+                            </div>
+                            <p class="product-description" data-product-description>Combinação equilibrada de expresso, leite vaporizado e uma cremosa camada de canela</p>
+                        </div>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/capuccino.jpg" alt="Cappuccino Tradicional" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="cappuccino-tradicional" aria-label="Adicionar Cappuccino Tradicional ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                    </article>
+                    <article class="product-card product-card--horizontal" data-product-id="cafe-latte">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="cafe-latte" aria-labelledby="cafes-cafe-latte-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-info">
+                            <h3 class="product-name" id="cafes-cafe-latte-title" data-product-name>Café Latte</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="12.50" data-product-price>R$ 12,50</data>
+                            </div>
+                            <p class="product-description" data-product-description>Bebida suave feita com uma dose de expresso e bastante leite vaporizado cremoso</p>
+                        </div>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/cafe-latte.jpg" alt="Café Latte" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="cafe-latte" aria-label="Adicionar Café Latte ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                    </article>
+                    <article class="product-card product-card--horizontal" data-product-id="cafe-mocha">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="cafe-mocha" aria-labelledby="cafes-cafe-mocha-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-info">
+                            <h3 class="product-name" id="cafes-cafe-mocha-title" data-product-name>Café Mocha</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="16.00" data-product-price>R$ 16,00</data>
+                            </div>
+                            <p class="product-description" data-product-description>Deliciosa mistura de expresso, calda artesanal de chocolate e leite vaporizado</p>
+                        </div>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/cafe-mocha.jpg" alt="Café Mocha" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="cafe-mocha" aria-label="Adicionar Café Mocha ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                    </article>
+                    <article class="product-card product-card--horizontal" data-product-id="flat-white">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="flat-white" aria-labelledby="cafes-flat-white-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-info">
+                            <h3 class="product-name" id="cafes-flat-white-title" data-product-name>Flat White</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="13.00" data-product-price>R$ 13,00</data>
+                            </div>
+                            <p class="product-description" data-product-description>Dose dupla de expresso combinada com uma fina e cremosa camada de leite vaporizado</p>
+                        </div>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/flat-white.jpg" alt="Flat White" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="flat-white" aria-label="Adicionar Flat White ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                    </article>
+                    <article class="product-card product-card--horizontal" data-product-id="cafe-macchiato">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="cafe-macchiato" aria-labelledby="cafes-cafe-macchiato-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-info">
+                            <h3 class="product-name" id="cafes-cafe-macchiato-title" data-product-name>Café Macchiato</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="9.00" data-product-price>R$ 9,00</data>
+                            </div>
+                            <p class="product-description" data-product-description>Expresso encorpado ‘manchado’ com uma leve camada de espuma de leite vaporizado</p>
+                        </div>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/cafe-macchiato.jpg" alt="Café Macchiato" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="cafe-macchiato" aria-label="Adicionar Café Macchiato ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="catalog-section" id="bebidas-geladas" aria-labelledby="bebidas-geladas-title">
+                <div class="section-header">
+                    <h2 id="bebidas-geladas-title">Bebidas Geladas</h2>
+                </div>
+                <div class="product-grid">
+                    <article class="product-card" data-product-id="refrigerante">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="refrigerante" aria-labelledby="bebidas-geladas-refrigerante-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/refris.jpg" alt="Refrigerante 350ml" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="refrigerante" aria-label="Adicionar Refrigerante 350ml ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-geladas-refrigerante-title" data-product-name>Refrigerante 350ml</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="6.50" data-product-price>R$ 6,50</data>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="agua">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="agua" aria-labelledby="bebidas-geladas-agua-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/agua.jpg" alt="Água 500ml" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="agua" aria-label="Adicionar Água 500ml ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-geladas-agua-title" data-product-name>Água 500ml</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="3.50" data-product-price>R$ 3,50</data>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="suco">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="suco" aria-labelledby="bebidas-geladas-suco-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/sucos.jpg" alt="Suco 350ml" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="suco" aria-label="Adicionar Suco 350ml ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-geladas-suco-title" data-product-name>Suco 350ml</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="8.20" data-product-price>R$ 8,20</data>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="cha-matte">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="cha-matte" aria-labelledby="bebidas-geladas-cha-matte-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/cha-matte.jpg" alt="Chá matte" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="cha-matte" aria-label="Adicionar Chá matte ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-geladas-cha-matte-title" data-product-name>Chá matte</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="8.50" data-product-price>R$ 8,50</data>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="lemonade-de-morango">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="lemonade-de-morango" aria-labelledby="bebidas-geladas-lemonade-de-morango-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/lemonade-morangay.jpg" alt="Lemonade de Morango" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="lemonade-de-morango" aria-label="Adicionar Lemonade de Morango ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-geladas-lemonade-de-morango-title" data-product-name>Lemonade de Morango</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="12.00" data-product-price>R$ 12,00</data>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="frappuccino">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="frappuccino" aria-labelledby="bebidas-geladas-frappuccino-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/frapuccino.jpg" alt="Frappuccino" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="frappuccino" aria-label="Adicionar Frappuccino ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-geladas-frappuccino-title" data-product-name>Frappuccino</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="13.20" data-product-price>R$ 13,20</data>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="smoothie">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="smoothie" aria-labelledby="bebidas-geladas-smoothie-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/smothie.jpg" alt="Smoothie" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="smoothie" aria-label="Adicionar Smoothie ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-geladas-smoothie-title" data-product-name>Smoothie</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="17.20" data-product-price>R$ 17,20</data>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="expresso-tonica">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="expresso-tonica" aria-labelledby="bebidas-geladas-expresso-tonica-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/expresso-tonica.jpg" alt="Expresso Tônica" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="expresso-tonica" aria-label="Adicionar Expresso Tônica ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-geladas-expresso-tonica-title" data-product-name>Expresso Tônica</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="14.50" data-product-price>R$ 14,50</data>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="catalog-section" id="bebidas-alternativas" aria-labelledby="bebidas-alternativas-title">
+                <div class="section-header">
+                    <h2 id="bebidas-alternativas-title">Bebidas Alternativas</h2>
+                </div>
+                <div class="product-grid">
+                    <article class="product-card" data-product-id="cold-brew">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="cold-brew" aria-labelledby="bebidas-alternativas-cold-brew-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/cold-brew.jpg" alt="Cold Brew" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="cold-brew" aria-label="Adicionar Cold Brew ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-alternativas-cold-brew-title" data-product-name>Cold Brew</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="12.50" data-product-price>R$ 12,50</data>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="iced-mocha">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="iced-mocha" aria-labelledby="bebidas-alternativas-iced-mocha-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/iced-mocha.jpg" alt="Iced Mocha" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="iced-mocha" aria-label="Adicionar Iced Mocha ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-alternativas-iced-mocha-title" data-product-name>Iced Mocha</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="14.00" data-product-price>R$ 14,00</data>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="matcha-latte">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="matcha-latte" aria-labelledby="bebidas-alternativas-matcha-latte-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/matcha-latte.jpg" alt="Matcha Latte" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="matcha-latte" aria-label="Adicionar Matcha Latte ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-alternativas-matcha-latte-title" data-product-name>Matcha Latte</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="16.20" data-product-price>R$ 16,20</data>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="golden-milk">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="golden-milk" aria-labelledby="bebidas-alternativas-golden-milk-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/golden-milk.jpg" alt="Golden Milk" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="golden-milk" aria-label="Adicionar Golden Milk ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-alternativas-golden-milk-title" data-product-name>Golden Milk</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="14.00" data-product-price>R$ 14,00</data>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="soda-italiana">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="soda-italiana" aria-labelledby="bebidas-alternativas-soda-italiana-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/soda.jpg" alt="Soda Italiana" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="soda-italiana" aria-label="Adicionar Soda Italiana ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-alternativas-soda-italiana-title" data-product-name>Soda Italiana</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="12.00" data-product-price>R$ 12,00</data>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="latte-de-frutas-vermelhas">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="latte-de-frutas-vermelhas" aria-labelledby="bebidas-alternativas-latte-de-frutas-vermelhas-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/latte-furtavermelha.jpg" alt="Latte de Frutas Vermelhas" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="latte-de-frutas-vermelhas" aria-label="Adicionar Latte de Frutas Vermelhas ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-alternativas-latte-de-frutas-vermelhas-title" data-product-name>Latte de Frutas Vermelhas</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="13.20" data-product-price>R$ 13,20</data>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="chai-latte">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="chai-latte" aria-labelledby="bebidas-alternativas-chai-latte-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/chai-latte.jpg" alt="Chai Latte" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="chai-latte" aria-label="Adicionar Chai Latte ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-alternativas-chai-latte-title" data-product-name>Chai Latte</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="15.00" data-product-price>R$ 15,00</data>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card" data-product-id="kombucha-artesanal">
+                        <button class="product-trigger" type="button" data-action="open-product" data-product-id="kombucha-artesanal" aria-labelledby="bebidas-alternativas-kombucha-artesanal-title" aria-haspopup="dialog" aria-controls="product-dialog"></button>
+                        <div class="product-media">
+                            <img class="product-image" src="../../imgs/kombucha.jpg" alt="Kombucha Artesanal" loading="lazy" decoding="async">
+                            <button class="product-add" type="button" data-action="add-to-cart" data-product-id="kombucha-artesanal" aria-label="Adicionar Kombucha Artesanal ao carrinho">
+                                <img src="../../imgs/Plus.svg" width="20" height="20" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name" id="bebidas-alternativas-kombucha-artesanal-title" data-product-name>Kombucha Artesanal</h3>
+                            <div class="product-meta">
+                                <data class="product-price" value="13.50" data-product-price>R$ 13,50</data>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="catalog-footer">
+        <div class="footer-main">
+            <a class="footer-brand" href="../../index.html" aria-label="Nogueira Coffe — página inicial">
+                <img class="footer-logo" src="../../imgs/nogueira-logo.png" width="2000" height="2000" alt="Nogueira Café, desde 2026." loading="lazy" decoding="async">
+            </a>
+            <div class="footer-columns">
+                <nav class="footer-column" aria-labelledby="footer-information-title">
+                    <h2 id="footer-information-title">INFORMAÇÕES</h2>
+                    <ul class="footer-links">
+                        <li><a class="footer-link" href="../../index.html">Home</a></li>
+                        <li><a class="footer-link" href="#cafes">Pedir cafés</a></li>
+                        <li><a class="footer-link" href="#salgados">Pedir lanches</a></li>
+                        <li><a class="footer-link" href="#bebidas-geladas">Pedir bebidas</a></li>
+                        <li><span class="footer-link footer-unavailable">Contato</span></li>
+                    </ul>
+                </nav>
+                <div class="footer-column">
+                    <h2>SIGA-NOS</h2>
+                    <ul class="footer-links">
+                        <li><span class="footer-link footer-unavailable">Instagram</span></li>
+                        <li><span class="footer-link footer-unavailable">YouTube</span></li>
+                        <li><span class="footer-link footer-unavailable">LinkedIn</span></li>
+                        <li><span class="footer-link footer-unavailable">TikTok</span></li>
+                    </ul>
+                </div>
+                <div class="footer-column footer-location">
+                    <h2>SEU CAFÉ DE CADA DIA</h2>
+                    <address class="footer-address">
+                        <p>08:00 – 17:00</p>
+                        <p>212 Av. Trompowsky</p>
+                        <p>Florianópolis, Santa Catarina</p>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>©2026 Nogueira Coffe. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Painéis sobrepostos à página. As ações serão conectadas na etapa de JavaScript. -->
+    <dialog class="drawer drawer--user" id="user-menu" aria-labelledby="user-menu-title">
+        <div class="user-panel-content">
+            <h2 id="user-menu-title" class="visually-hidden">Menu do usuário</h2>
+            <button class="icon-button dialog-close drawer-close" type="button" data-close-dialog aria-label="Fechar menu do usuário">×</button>
+            <div class="user-panel-profile">
+                <span class="user-avatar" aria-hidden="true"></span>
+                <div>
+                    <p class="user-panel-name" data-user-name>User</p>
+                    <a class="user-panel-account" href="../perfil/perfil.html">Gerenciar conta</a>
+                </div>
+            </div>
+            <nav class="user-panel-nav" aria-label="Opções da conta">
+                <button class="user-panel-link" type="button" data-action="choose-address">
+                    <span class="user-panel-icon"><img src="../../imgs/location_on.svg" width="24" height="24" alt="" aria-hidden="true"></span>
+                    <span>Endereço</span>
+                </button>
+                <button class="user-panel-link" type="button" data-action="show-favorites">
+                    <span class="user-panel-icon"><img src="../../imgs/Heart.svg" width="30" height="30" alt="" aria-hidden="true"></span>
+                    <span>Favoritos</span>
+                </button>
+                <button class="user-panel-link" type="button" data-open-dialog="cart-panel">
+                    <span class="user-panel-icon"><img src="../../imgs/Shopping cart.svg" width="35" height="35" alt="" aria-hidden="true"></span>
+                    <span>Pedidos</span>
+                </button>
+                <button class="user-panel-link" type="button" data-action="show-notifications">
+                    <span class="user-panel-icon"><img src="../../imgs/notifications.svg" width="30" height="30" alt="" aria-hidden="true"></span>
+                    <span>Notificações</span>
+                </button>
+            </nav>
+            <button class="user-panel-signout" type="button" data-action="sign-out">Sign out</button>
+            <div class="user-panel-roles">
+                <button class="user-panel-role" type="button" data-action="open-admin">Área administrativa</button>
+                <button class="user-panel-role" type="button" data-action="open-courier">Área de entregador</button>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog class="drawer drawer--cart" id="cart-panel" aria-labelledby="cart-title">
+        <div class="cart-panel-content">
+            <header class="cart-header">
+                <button class="icon-button dialog-close" type="button" data-close-dialog aria-label="Fechar carrinho">×</button>
+                <h2 id="cart-title">Carrinho</h2>
+            </header>
+            <!-- Itens de exemplo para revisão visual; ainda não há estado de carrinho. -->
+            <div class="cart-items" data-cart-items>
+                <article class="cart-item" data-cart-product-id="bolinho-de-batata">
+                    <img class="cart-item-image" src="../../imgs/bolinho-batata.jpg" alt="Bolinho de Batata" loading="lazy" decoding="async">
+                    <div class="cart-item-info">
+                        <h3 class="cart-item-name">Bolinho de Batata</h3>
+                        <data class="cart-item-price" value="18.50">R$ 18,50</data>
+                        <div class="quantity-control" role="group" aria-label="Quantidade de Bolinho de Batata">
+                            <button type="button" data-action="decrease-quantity" aria-label="Diminuir quantidade de Bolinho de Batata">−</button>
+                            <output aria-label="Quantidade">1</output>
+                            <button type="button" data-action="increase-quantity" aria-label="Aumentar quantidade de Bolinho de Batata">+</button>
+                        </div>
+                    </div>
+                    <button class="icon-button cart-item-remove" type="button" data-action="remove-from-cart" aria-label="Remover Bolinho de Batata do carrinho">×</button>
+                </article>
+                <article class="cart-item" data-cart-product-id="pasteis-sortidos">
+                    <img class="cart-item-image" src="../../imgs/pasteis.jpg" alt="Pastéis sortidos" loading="lazy" decoding="async">
+                    <div class="cart-item-info">
+                        <h3 class="cart-item-name">Pastéis sortidos</h3>
+                        <data class="cart-item-price" value="23.50">R$ 23,50</data>
+                        <div class="quantity-control" role="group" aria-label="Quantidade de Pastéis sortidos">
+                            <button type="button" data-action="decrease-quantity" aria-label="Diminuir quantidade de Pastéis sortidos">−</button>
+                            <output aria-label="Quantidade">1</output>
+                            <button type="button" data-action="increase-quantity" aria-label="Aumentar quantidade de Pastéis sortidos">+</button>
+                        </div>
+                    </div>
+                    <button class="icon-button cart-item-remove" type="button" data-action="remove-from-cart" aria-label="Remover Pastéis sortidos do carrinho">×</button>
+                </article>
+                <article class="cart-item" data-cart-product-id="cappuccino-tradicional">
+                    <img class="cart-item-image" src="../../imgs/capuccino.jpg" alt="Cappuccino Tradicional" loading="lazy" decoding="async">
+                    <div class="cart-item-info">
+                        <h3 class="cart-item-name">Cappuccino Tradicional</h3>
+                        <data class="cart-item-price" value="14.00">R$ 14,00</data>
+                        <div class="quantity-control" role="group" aria-label="Quantidade de Cappuccino Tradicional">
+                            <button type="button" data-action="decrease-quantity" aria-label="Diminuir quantidade de Cappuccino Tradicional">−</button>
+                            <output aria-label="Quantidade">1</output>
+                            <button type="button" data-action="increase-quantity" aria-label="Aumentar quantidade de Cappuccino Tradicional">+</button>
+                        </div>
+                    </div>
+                    <button class="icon-button cart-item-remove" type="button" data-action="remove-from-cart" aria-label="Remover Cappuccino Tradicional do carrinho">×</button>
+                </article>
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <data value="56.00" data-cart-total>R$ 56,00</data>
+            </div>
+            <div class="cart-checkout">
+                <button class="primary-button" type="button" data-action="checkout">Finalizar pedido</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Um único modal reutilizável. O conteúdo inicial é o exemplo do Figma. -->
+    <dialog class="product-dialog" id="product-dialog" aria-labelledby="product-dialog-title">
+        <button class="icon-button dialog-close" type="button" data-close-dialog aria-label="Fechar detalhes do produto">×</button>
+        <div class="product-dialog-layout">
+            <div class="product-dialog-copy">
+                <h2 id="product-dialog-title" data-dialog-name>Café Mocha</h2>
+                <p class="product-dialog-description" data-dialog-description>Deliciosa mistura de expresso, calda artesanal de chocolate e leite vaporizado</p>
+                <data class="product-dialog-price" value="16.00" data-dialog-price>R$ 16,00</data>
+            </div>
+            <img class="product-dialog-image" src="../../imgs/cafe-mocha.jpg" alt="Café Mocha" loading="lazy" decoding="async" data-dialog-image>
+        </div>
+        <div class="product-dialog-footer">
+            <button class="primary-button" type="button" data-action="add-to-cart" data-product-id="cafe-mocha" data-dialog-add>Adicionar ao carrinho</button>
+        </div>
+    </dialog>
 </body>
 </html>
