@@ -108,6 +108,7 @@ body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativ
 
 /* Catalog, product cards and delivery information. */
 .catalog-main { min-width: 0; padding: 32px 64px 120px 24px; }
+.catalog-banner-link { display: block; border-radius: 20px; }
 .catalog-banner { width: 100%; height: 200px; border-radius: 20px; object-fit: cover; object-position: center 58%; }
 .catalog-search { position: relative; display: flex; align-items: center; width: min(100%, 300px); margin: 32px 0 32px auto; }
 .catalog-search > img { position: absolute; left: 14px; pointer-events: none; }
