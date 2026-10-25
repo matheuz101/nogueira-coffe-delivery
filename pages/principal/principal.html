@@ -7,6 +7,7 @@
     <meta name="description" content="Cafés, lanches e bebidas para a sua próxima pausa. Conheça o cardápio Nogueira Coffe.">
     <title>Cardápio — Nogueira Coffe</title>
     <link rel="stylesheet" href="principal.css">
+    <script src="principal.js" defer></script>
 </head>
 <body>
     <a class="skip-link" href="#cardapio">Ir para o cardápio</a>
@@ -24,6 +25,7 @@
             <nav class="header-actions" aria-label="Acesso e carrinho">
                 <button class="icon-button header-cart" type="button" data-open-dialog="cart-panel" aria-label="Abrir carrinho" aria-haspopup="dialog" aria-controls="cart-panel">
                     <img src="../../imgs/Shopping cart.svg" width="25" height="25" alt="" aria-hidden="true">
+                    <span class="cart-count" data-cart-count hidden>0</span>
                 </button>
                 <a class="header-login" href="../loginSignup/loginSignup.html">Log in</a>
                 <a class="header-signup" href="../signup/signup.html">Sign up</a>
@@ -698,11 +700,11 @@
         </div>
     </footer>
 
-    <!-- Painéis sobrepostos à página. As ações serão conectadas na etapa de JavaScript. -->
+    <!-- Painéis modais: foco, tecla Escape e fundo ficam sob controle do dialog. -->
     <dialog class="drawer drawer--user" id="user-menu" aria-labelledby="user-menu-title">
         <div class="user-panel-content">
             <h2 id="user-menu-title" class="visually-hidden">Menu do usuário</h2>
-            <button class="icon-button dialog-close drawer-close" type="button" data-close-dialog aria-label="Fechar menu do usuário">×</button>
+            <button class="icon-button dialog-close drawer-close" type="button" data-close-dialog aria-label="Fechar menu do usuário" autofocus>×</button>
             <div class="user-panel-profile">
                 <span class="user-avatar" aria-hidden="true"></span>
                 <div>
@@ -719,7 +721,7 @@
                     <span class="user-panel-icon"><img src="../../imgs/Heart.svg" width="30" height="30" alt="" aria-hidden="true"></span>
                     <span>Favoritos</span>
                 </button>
-                <button class="user-panel-link" type="button" data-open-dialog="cart-panel">
+                <button class="user-panel-link" type="button" data-open-dialog="cart-panel" aria-haspopup="dialog" aria-controls="cart-panel">
                     <span class="user-panel-icon"><img src="../../imgs/Shopping cart.svg" width="35" height="35" alt="" aria-hidden="true"></span>
                     <span>Pedidos</span>
                 </button>
@@ -739,58 +741,21 @@
     <dialog class="drawer drawer--cart" id="cart-panel" aria-labelledby="cart-title">
         <div class="cart-panel-content">
             <header class="cart-header">
-                <button class="icon-button dialog-close" type="button" data-close-dialog aria-label="Fechar carrinho">×</button>
+                <button class="icon-button dialog-close" type="button" data-close-dialog aria-label="Fechar carrinho" autofocus>×</button>
                 <h2 id="cart-title">Carrinho</h2>
             </header>
-            <!-- Itens de exemplo para revisão visual; ainda não há estado de carrinho. -->
             <div class="cart-items" data-cart-items>
-                <article class="cart-item" data-cart-product-id="bolinho-de-batata">
-                    <img class="cart-item-image" src="../../imgs/bolinho-batata.jpg" alt="Bolinho de Batata" loading="lazy" decoding="async">
-                    <div class="cart-item-info">
-                        <h3 class="cart-item-name">Bolinho de Batata</h3>
-                        <data class="cart-item-price" value="18.50">R$ 18,50</data>
-                        <div class="quantity-control" role="group" aria-label="Quantidade de Bolinho de Batata">
-                            <button type="button" data-action="decrease-quantity" aria-label="Diminuir quantidade de Bolinho de Batata">−</button>
-                            <output aria-label="Quantidade">1</output>
-                            <button type="button" data-action="increase-quantity" aria-label="Aumentar quantidade de Bolinho de Batata">+</button>
-                        </div>
-                    </div>
-                    <button class="icon-button cart-item-remove" type="button" data-action="remove-from-cart" aria-label="Remover Bolinho de Batata do carrinho">×</button>
-                </article>
-                <article class="cart-item" data-cart-product-id="pasteis-sortidos">
-                    <img class="cart-item-image" src="../../imgs/pasteis.jpg" alt="Pastéis sortidos" loading="lazy" decoding="async">
-                    <div class="cart-item-info">
-                        <h3 class="cart-item-name">Pastéis sortidos</h3>
-                        <data class="cart-item-price" value="23.50">R$ 23,50</data>
-                        <div class="quantity-control" role="group" aria-label="Quantidade de Pastéis sortidos">
-                            <button type="button" data-action="decrease-quantity" aria-label="Diminuir quantidade de Pastéis sortidos">−</button>
-                            <output aria-label="Quantidade">1</output>
-                            <button type="button" data-action="increase-quantity" aria-label="Aumentar quantidade de Pastéis sortidos">+</button>
-                        </div>
-                    </div>
-                    <button class="icon-button cart-item-remove" type="button" data-action="remove-from-cart" aria-label="Remover Pastéis sortidos do carrinho">×</button>
-                </article>
-                <article class="cart-item" data-cart-product-id="cappuccino-tradicional">
-                    <img class="cart-item-image" src="../../imgs/capuccino.jpg" alt="Cappuccino Tradicional" loading="lazy" decoding="async">
-                    <div class="cart-item-info">
-                        <h3 class="cart-item-name">Cappuccino Tradicional</h3>
-                        <data class="cart-item-price" value="14.00">R$ 14,00</data>
-                        <div class="quantity-control" role="group" aria-label="Quantidade de Cappuccino Tradicional">
-                            <button type="button" data-action="decrease-quantity" aria-label="Diminuir quantidade de Cappuccino Tradicional">−</button>
-                            <output aria-label="Quantidade">1</output>
-                            <button type="button" data-action="increase-quantity" aria-label="Aumentar quantidade de Cappuccino Tradicional">+</button>
-                        </div>
-                    </div>
-                    <button class="icon-button cart-item-remove" type="button" data-action="remove-from-cart" aria-label="Remover Cappuccino Tradicional do carrinho">×</button>
-                </article>
+                <p class="cart-empty">Seu carrinho está vazio. Escolha seus favoritos no cardápio.</p>
             </div>
             <div class="cart-total">
                 <span>Total:</span>
-                <data value="56.00" data-cart-total>R$ 56,00</data>
+                <data value="0.00" data-cart-total>R$ 0,00</data>
             </div>
             <div class="cart-checkout">
-                <button class="primary-button" type="button" data-action="checkout">Finalizar pedido</button>
+                <button class="primary-button" type="button" data-action="checkout" disabled aria-describedby="checkout-note">Finalizar pedido</button>
+                <p class="checkout-note" id="checkout-note">A finalização de pedidos estará disponível em breve.</p>
             </div>
+            <p class="visually-hidden" role="status" aria-live="polite" data-cart-status></p>
         </div>
     </dialog>
 
