@@ -1,10 +1,4 @@
-@font-face {
-    font-family: "Inter";
-    src: url("../../fonts/Inter-Regular.ttf") format("truetype");
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
     color-scheme: light;
@@ -13,7 +7,9 @@
     background: #FBF5EE;
 }
 
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
     min-width: 280px;
@@ -61,7 +57,10 @@ body {
     line-height: 22px;
 }
 
-.signup-field input::placeholder { color: #6D6965; opacity: 1; }
+.signup-field input::placeholder {
+    color: #6D6965;
+    opacity: 1;
+}
 
 .signup-field input:focus-visible {
     border-color: #3E2723;
@@ -87,8 +86,13 @@ body {
     cursor: pointer;
 }
 
-.signup-button:hover { background: #3E2723; border-color: #3E2723; }
-.signup-button:active { box-shadow: none; }
+.signup-button:hover {
+    background: #3E2723;
+    border-color: #3E2723;
+}
+.signup-button:active {
+    box-shadow: none;
+}
 
 :where(.signup-brand, .signup-button):focus-visible {
     outline: 2px solid #3E2723;
@@ -108,7 +112,14 @@ body {
 }
 
 @media (max-width: 480px) {
-    .signup-page { padding: 24px 0 40px; }
-    .signup-brand { width: 136px; margin-bottom: 24px; }
-    .signup-form { gap: 16px; }
+    .signup-page {
+        padding: 24px 0 40px;
+    }
+    .signup-brand {
+        width: 136px;
+        margin-bottom: 24px;
+    }
+    .signup-form {
+        gap: 16px;
+    }
 }

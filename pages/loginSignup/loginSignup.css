@@ -1,10 +1,4 @@
-@font-face {
-    font-family: "Inter";
-    src: url("../../fonts/Inter-Regular.ttf") format("truetype");
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
     color-scheme: light;
@@ -13,16 +7,22 @@
     background: #FBF5EE;
 }
 
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
     min-width: 280px;
     margin: 0;
 }
 
-button, input { font: inherit; }
+button, input {
+    font: inherit;
+}
 
-a { color: inherit; }
+a {
+    color: inherit;
+}
 
 .auth-shell {
     display: flex;
@@ -48,9 +48,13 @@ a { color: inherit; }
     height: 128px;
 }
 
-.auth-content, .auth-footer { width: 100%; }
+.auth-content, .auth-footer {
+    width: 100%;
+}
 
-.auth-field { margin-bottom: 12px; }
+.auth-field {
+    margin-bottom: 12px;
+}
 
 .auth-field input {
     display: block;
@@ -67,7 +71,10 @@ a { color: inherit; }
     transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
-.auth-field input::placeholder { color: #756D65; opacity: 1; }
+.auth-field input::placeholder {
+    color: #756D65;
+    opacity: 1;
+}
 
 .auth-field input:focus {
     border-color: #3E2723;
@@ -76,8 +83,12 @@ a { color: inherit; }
     box-shadow: none;
 }
 
-.password-field { position: relative; }
-.password-field input { padding-right: 52px; }
+.password-field {
+    position: relative;
+}
+.password-field input {
+    padding-right: 52px;
+}
 
 .password-toggle {
     display: grid;
@@ -95,9 +106,16 @@ a { color: inherit; }
     cursor: pointer;
 }
 
-.password-toggle:hover { color: #171411; background: #FBF5EE; }
-.eye-slash { display: none; }
-.password-toggle[aria-pressed="true"] .eye-slash { display: block; }
+.password-toggle:hover {
+    color: #171411;
+    background: #FBF5EE;
+}
+.eye-slash {
+    display: none;
+}
+.password-toggle[aria-pressed="true"] .eye-slash {
+    display: block;
+}
 
 .auth-button {
     display: flex;
@@ -125,9 +143,19 @@ a { color: inherit; }
     box-shadow: 0 3px 0 rgb(62 39 35 / 14%);
 }
 
-.auth-button-primary:hover { background: #3E2723; transform: translateY(-1px); }
-.auth-button-primary:active { transform: translateY(1px); box-shadow: none; }
-.auth-button:disabled { opacity: 0.65; cursor: wait; transform: none; }
+.auth-button-primary:hover {
+    background: #3E2723;
+    transform: translateY(-1px);
+}
+.auth-button-primary:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+.auth-button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+    transform: none;
+}
 
 .auth-feedback {
     min-height: 40px;
@@ -138,8 +166,12 @@ a { color: inherit; }
     overflow-wrap: anywhere;
 }
 
-.auth-feedback[data-tone="info"] { color: #62584E; }
-.auth-feedback:empty { display: none; }
+.auth-feedback[data-tone="info"] {
+    color: #62584E;
+}
+.auth-feedback:empty {
+    display: none;
+}
 
 .auth-footer {
     margin-top: auto;
@@ -161,12 +193,25 @@ a { color: inherit; }
     color: #3E2723;
 }
 
-.auth-button-secondary svg { flex-shrink: 0; transition: transform 160ms ease; }
-.auth-button-secondary:hover { background: #3E2723; color: #FFFFFF; }
-.auth-button-secondary:hover svg { transform: translateX(3px); }
-.auth-button-secondary:active { transform: translateY(1px); }
+.auth-button-secondary svg {
+    flex-shrink: 0;
+    transition: transform 160ms ease;
+}
+.auth-button-secondary:hover {
+    background: #3E2723;
+    color: #FFFFFF;
+}
+.auth-button-secondary:hover svg {
+    transform: translateX(3px);
+}
+.auth-button-secondary:active {
+    transform: translateY(1px);
+}
 
-:where(a, button):focus-visible { outline: 2px solid #3E2723; outline-offset: 4px; }
+:where(a, button):focus-visible {
+    outline: 2px solid #3E2723;
+    outline-offset: 4px;
+}
 
 .visually-hidden {
     position: absolute;
@@ -181,10 +226,17 @@ a { color: inherit; }
 }
 
 @media (min-height: 700px) {
-    .auth-shell { padding-top: 32px; padding-bottom: 40px; }
-    .auth-brand { margin-bottom: 32px; }
+    .auth-shell {
+        padding-top: 32px;
+        padding-bottom: 40px;
+    }
+    .auth-brand {
+        margin-bottom: 32px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { transition: none !important; }
+    *, *::before, *::after {
+        transition: none !important;
+    }
 }
