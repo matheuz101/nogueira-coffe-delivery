@@ -477,6 +477,7 @@ body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativ
     line-height: 1.45;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
 }
 .product-card--horizontal .product-media {
     min-height: 180px;
@@ -1092,6 +1093,7 @@ dialog::backdrop {
     .product-card--horizontal .product-description {
         font-size: 13px;
         -webkit-line-clamp: 3;
+        line-clamp: 3;
     }
     .footer-main {
         padding-bottom: 56px;
