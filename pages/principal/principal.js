@@ -1,4 +1,3 @@
-// 1. Elementos da página e dados do carrinho
 const painelCarrinho = document.querySelector('#cart-panel');
 const painelProduto = document.querySelector('#product-dialog');
 const listaCarrinho = document.querySelector('[data-cart-items]');
@@ -12,7 +11,6 @@ const carrinho = {};
 let botaoOrigem;
 let posicaoPagina;
 
-// Os preços são guardados em centavos para evitar erros na soma.
 document.querySelectorAll('.product-card').forEach(function (card) {
     const id = card.dataset.productId;
     produtos[id] = {
@@ -31,7 +29,6 @@ function mostrarPreco(elemento, centavos) {
     });
 }
 
-// 2. Abrir e fechar os painéis
 function abrirPainel(painel, botao) {
     const painelAtual = document.querySelector('dialog[open]');
     if (painelAtual === painel) return;
@@ -72,7 +69,6 @@ document.querySelectorAll('dialog').forEach(function (painel) {
     });
 });
 
-// 3. Mostrar os detalhes de um produto
 function mostrarProduto(id, botao) {
     const produto = produtos[id];
     painelProduto.querySelector('[data-dialog-name]').textContent = produto.nome;
@@ -85,7 +81,6 @@ function mostrarProduto(id, botao) {
     abrirPainel(painelProduto, botao);
 }
 
-// 4. Montar um item e atualizar os valores do carrinho
 function criarItemCarrinho(id, quantidade) {
     const produto = produtos[id];
     const item = document.createElement('article');
@@ -142,7 +137,6 @@ function atualizarCarrinho() {
     try {
         localStorage.setItem(chaveCarrinho, JSON.stringify(Object.entries(carrinho)));
     } catch {
-        // O carrinho continua funcionando se o navegador bloquear o armazenamento.
     }
 }
 
@@ -157,7 +151,6 @@ function alterarQuantidade(id, quantidade) {
         : `${produtos[id].nome} removido do carrinho.`;
 }
 
-// 5. Conectar os botões da página
 document.addEventListener('click', function (evento) {
     const botao = evento.target.closest('button');
     if (!botao) return;
@@ -171,6 +164,7 @@ document.addEventListener('click', function (evento) {
     } else if (botao.dataset.action === 'add-to-cart') {
         const id = botao.dataset.productId;
         alterarQuantidade(id, (carrinho[id] || 0) + 1);
+        abrirPainel(painelCarrinho, botao);
     }
 });
 
@@ -186,7 +180,6 @@ listaCarrinho.addEventListener('click', function (evento) {
     if (acao === 'decrease-quantity') alterarQuantidade(id, carrinho[id] - 1);
     if (acao === 'remove-from-cart') alterarQuantidade(id, 0);
 
-    // Depois de atualizar a lista, manter o foco em um botão do carrinho.
     const itemAtual = listaCarrinho.querySelector(`[data-cart-product-id="${id}"]`);
     const proximoItem = listaCarrinho.children[Math.min(posicaoItem, listaCarrinho.children.length - 1)];
     const proximoBotao = itemAtual?.querySelector(`[data-action="${acao}"]:not(:disabled)`)
@@ -195,7 +188,6 @@ listaCarrinho.addEventListener('click', function (evento) {
     proximoBotao.focus({ preventScroll: true });
 });
 
-// 6. Recuperar o carrinho salvo e mostrar os valores iniciais
 try {
     const itensSalvos = JSON.parse(localStorage.getItem(chaveCarrinho) || '[]');
     if (Array.isArray(itensSalvos)) {
@@ -208,6 +200,5 @@ try {
         });
     }
 } catch {
-    // Se os dados estiverem inválidos ou inacessíveis, começar com o carrinho vazio.
 }
 atualizarCarrinho();

@@ -36,7 +36,6 @@ body {
     z-index: 100;
 }
 
-/* Cover content after it crosses the top edge of the fixed navigation. */
 .site-header::before {
     content: "";
     position: fixed;
@@ -379,7 +378,6 @@ body {
         top: calc(var(--header-margin-y) + var(--header-height) - 1px);
     }
 
-    /* Keyboard navigation keeps focused controls clear of overlapping panels. */
     .home-panels:has(:focus-visible) > .hero {
         position: relative;
         top: auto;
@@ -625,7 +623,6 @@ body {
     display: block;
     width: 100%;
     height: auto;
-    /* Preserve the original transparent artwork and render its ink as #FFFFFF. */
     filter: brightness(0) invert(1);
 }
 
@@ -807,7 +804,6 @@ body {
     color: var(--color-primary);
 }
 
-/* As in the reference, the white panel scrolls over the pinned section title. */
 @media (prefers-reduced-motion: no-preference) {
     .menu-selection-heading {
         position: sticky;
@@ -1225,7 +1221,6 @@ body {
     display: none;
 }
 
-/* The reference pins the video for 200vh and slides its paper mask up by 100vh. */
 .tradition[data-motion="enabled"] {
     height: 200svh;
 }

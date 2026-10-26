@@ -15,7 +15,6 @@ function syncPageScrolling() {
 
     if (pageScroll) return;
 
-    // Match the reference site's Lenis 1.3.1 defaults for wheel smoothing.
     pageScroll = new Lenis({
         autoRaf: true,
         smoothWheel: true,
@@ -63,7 +62,6 @@ function syncViewport() {
     menu.hidden = mobileViewport.matches;
     menu.inert = mobileViewport.matches;
 
-    // Keep reading and keyboard order aligned with each layout.
     if (mobileViewport.matches) {
         menu.parentElement.append(menu);
         if (focusWasInMenu) toggle.focus();
@@ -100,7 +98,6 @@ header.addEventListener('focusout', () => {
     }, 0);
 });
 
-// Empty href values are intentional. Filling one in activates that link.
 document.addEventListener('click', (event) => {
     const link = event.target.closest('a[aria-disabled="true"]');
     if (link?.getAttribute('href') === '') event.preventDefault();

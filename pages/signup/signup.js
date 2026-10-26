@@ -21,7 +21,6 @@ try {
         }
     }
 } catch {
-    // Signup remains available when browser storage is disabled.
 }
 
 passwordToggle.addEventListener('click', () => {

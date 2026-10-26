@@ -89,7 +89,6 @@ ul {
     top: 12px;
 }
 
-/* Header and category navigation. */
 .catalog-header {
     position: sticky;
     top: 0;
@@ -238,7 +237,6 @@ body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativ
     background: var(--color-white);
 }
 
-/* Catalog, product cards and delivery information. */
 .catalog-main {
     min-width: 0;
     padding: 32px 64px 120px 24px;
@@ -486,7 +484,6 @@ body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativ
     border-radius: 0 20px 20px 0;
 }
 
-/* Footer follows the home page's layout and brand. */
 .catalog-footer {
     background: #000000;
     color: var(--color-white);
@@ -555,7 +552,6 @@ body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativ
     outline-color: var(--color-white);
 }
 
-/* Painéis laterais e detalhes do produto usam a camada modal do navegador. */
 dialog {
     color: var(--color-text);
     font: inherit;
