@@ -8,34 +8,34 @@
     <link rel="stylesheet" href="signup.css">
 </head>
 <body>
-    <main class="signup-page">
-        <a class="signup-brand" href="../../index.html" aria-label="Nogueira Coffe — home">
+    <main class="pagina-cadastro">
+        <a class="marca-cadastro" href="../../index.html" aria-label="Nogueira Coffe — home">
             <img src="../../imgs/nogueira-logo.png" alt="Nogueira Café — desde 2026" width="152" height="152">
         </a>
 
-        <h1 class="visually-hidden">Create your account</h1>
-        <form id="signup-form" class="signup-form" action="/api/auth/signup" method="post">
-            <div class="signup-field">
-                <label class="visually-hidden" for="first-name">First name</label>
-                <input id="first-name" name="firstName" type="text" autocomplete="given-name" placeholder="Enter first name" required maxlength="100">
+        <h1 class="texto-escondido">Create your account</h1>
+        <form id="formulario-cadastro" class="formulario-cadastro" action="/api/auth/signup" method="post">
+            <div class="campo-cadastro">
+                <label class="texto-escondido" for="primeiro-nome">First name</label>
+                <input id="primeiro-nome" name="firstName" type="text" autocomplete="given-name" placeholder="Enter first name" required maxlength="100">
             </div>
-            <div class="signup-field">
-                <label class="visually-hidden" for="email">Email</label>
+            <div class="campo-cadastro">
+                <label class="texto-escondido" for="email">Email</label>
                 <input id="email" name="email" type="email" autocomplete="email" placeholder="Enter email" required maxlength="254" spellcheck="false" autocapitalize="none">
             </div>
-            <div class="signup-field">
-                <label class="visually-hidden" for="phone">Phone number</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Enter phone number" required maxlength="25">
+            <div class="campo-cadastro">
+                <label class="texto-escondido" for="telefone">Phone number</label>
+                <input id="telefone" name="phone" type="tel" autocomplete="tel" placeholder="Enter phone number" required maxlength="25">
             </div>
-            <div class="signup-field">
-                <label class="visually-hidden" for="password">Password</label>
-                <input id="password" name="password" type="password" autocomplete="new-password" placeholder="Enter password" required minlength="8">
+            <div class="campo-cadastro">
+                <label class="texto-escondido" for="senha">Password</label>
+                <input id="senha" name="password" type="password" autocomplete="new-password" placeholder="Enter password" required minlength="8">
             </div>
-            <div class="signup-field">
-                <label class="visually-hidden" for="confirm-password">Confirm password</label>
-                <input id="confirm-password" name="passwordConfirmation" type="password" autocomplete="new-password" placeholder="Confirm password" required minlength="8">
+            <div class="campo-cadastro">
+                <label class="texto-escondido" for="confirmar-senha">Confirm password</label>
+                <input id="confirmar-senha" name="passwordConfirmation" type="password" autocomplete="new-password" placeholder="Confirm password" required minlength="8">
             </div>
-            <button class="signup-button" type="button">Sign up</button>
+            <button class="botao-cadastro" type="button">Sign up</button>
         </form>
     </main>
 </body>

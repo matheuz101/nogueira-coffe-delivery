@@ -31,7 +31,7 @@ a {
     text-decoration: none;
 }
 
-.account-header {
+.cabecalho-conta {
     display: flex;
     align-items: center;
     min-height: 72px;
@@ -39,7 +39,7 @@ a {
     background: #FFFFFF;
 }
 
-.account-header h1 {
+.cabecalho-conta h1 {
     margin: 0;
     font-size: 24px;
     font-weight: 600;
@@ -47,26 +47,26 @@ a {
     letter-spacing: -0.5px;
 }
 
-.account-layout {
+.pagina-conta {
     display: grid;
     grid-template-columns: 224px minmax(0, 1fr);
     min-height: calc(100vh - 72px);
     min-height: calc(100svh - 72px);
 }
 
-.account-sidebar {
+.lateral-conta {
     padding: 12px 24px 40px 0;
     border-right: 1px solid #BCB4AB;
 }
 
-.account-nav {
+.menu-conta {
     position: sticky;
     top: 24px;
     display: grid;
     gap: 4px;
 }
 
-.account-nav a {
+.menu-conta a {
     display: flex;
     align-items: center;
     min-height: 44px;
@@ -75,24 +75,24 @@ a {
     line-height: 1.4;
 }
 
-.account-nav-personal,
-body:has(#seguranca:target) .account-nav-security {
+.link-dados,
+body:has(#seguranca:target) .link-seguranca {
     background: #FFFFFF;
 }
-body:has(#seguranca:target) .account-nav-personal {
+body:has(#seguranca:target) .link-dados {
     background: transparent;
 }
-.account-nav a:hover {
+.menu-conta a:hover {
     background: #F0E7DD;
 }
 
-.account-main {
+.conteudo-conta {
     width: 100%;
     max-width: 640px;
     padding: 40px 40px 96px;
 }
 
-.account-section h2 {
+.secao-conta h2 {
     margin: 0 0 28px;
     font-size: 20px;
     font-weight: 500;
@@ -100,14 +100,14 @@ body:has(#seguranca:target) .account-nav-personal {
     letter-spacing: -0.3px;
 }
 
-.account-avatar {
+.foto-conta {
     position: relative;
     width: 104px;
     height: 104px;
     margin-bottom: 20px;
 }
 
-.avatar-placeholder {
+.foto-vazia {
     display: block;
     width: 100%;
     height: 100%;
@@ -115,7 +115,7 @@ body:has(#seguranca:target) .account-nav-personal {
     background: #D9D9D9;
 }
 
-.avatar-edit {
+.editar-foto {
     position: absolute;
     right: -2px;
     bottom: 0;
@@ -131,15 +131,15 @@ body:has(#seguranca:target) .account-nav-personal {
     cursor: pointer;
 }
 
-.avatar-edit:hover {
+.editar-foto:hover {
     background: #3E2723;
 }
 
-.account-fields {
+.campos-conta {
     display: grid;
 }
 
-.account-row {
+.campo-conta {
     position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr) 16px;
@@ -155,7 +155,7 @@ body:has(#seguranca:target) .account-nav-personal {
     cursor: pointer;
 }
 
-.account-row::after {
+.campo-conta::after {
     content: "";
     grid-column: 2;
     grid-row: 1 / span 2;
@@ -169,17 +169,17 @@ body:has(#seguranca:target) .account-nav-personal {
     transform: rotate(45deg);
 }
 
-.account-row:hover {
+.campo-conta:hover {
     background: #F2EAE1;
 }
 
-.account-row-label {
+.nome-campo {
     grid-column: 1;
     font-size: 16px;
     line-height: 1.5;
 }
 
-.account-row-detail {
+.valor-campo {
     grid-column: 1;
     color: #625B54;
     font-size: 14px;
@@ -187,26 +187,26 @@ body:has(#seguranca:target) .account-nav-personal {
     overflow-wrap: anywhere;
 }
 
-.account-security {
+.seguranca-conta {
     margin-top: 64px;
 }
-.account-security h2 {
+.seguranca-conta h2 {
     margin-bottom: 8px;
 }
-.account-security .account-fields {
+.seguranca-conta .campos-conta {
     gap: 24px;
 }
-.account-security .account-row {
+.seguranca-conta .campo-conta {
     min-height: 108px;
 }
-.account-security .account-row-password {
+.seguranca-conta .senha-conta {
     min-height: 94px;
 }
-.account-row-password .account-row-detail {
+.senha-conta .valor-campo {
     letter-spacing: 2px;
 }
 
-.account-signout {
+.sair-conta {
     display: block;
     min-height: 44px;
     margin-top: 72px;
@@ -219,7 +219,7 @@ body:has(#seguranca:target) .account-nav-personal {
     cursor: pointer;
 }
 
-.account-signout:hover {
+.sair-conta:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
 }
@@ -229,65 +229,65 @@ body:has(#seguranca:target) .account-nav-personal {
 }
 
 @media (max-width: 760px) and (min-width: 641px) {
-    .account-layout {
+    .pagina-conta {
         grid-template-columns: 168px minmax(0, 1fr);
     }
-    .account-sidebar {
+    .lateral-conta {
         padding-right: 16px;
     }
-    .account-nav a {
+    .menu-conta a {
         padding-inline: 20px;
     }
-    .account-main {
+    .conteudo-conta {
         padding-inline: 28px;
     }
 }
 
 @media (max-width: 640px) {
-    .account-header {
+    .cabecalho-conta {
         min-height: 64px;
         padding: 18px 24px;
     }
-    .account-header h1 {
+    .cabecalho-conta h1 {
         font-size: 22px;
     }
-    .account-layout {
+    .pagina-conta {
         grid-template-columns: minmax(0, 1fr);
         min-height: calc(100svh - 64px);
     }
-    .account-sidebar {
+    .lateral-conta {
         padding: 12px;
         border-right: 0;
         border-bottom: 1px solid #BCB4AB;
     }
-    .account-nav {
+    .menu-conta {
         position: static;
         display: flex;
         flex-wrap: wrap;
         gap: 4px;
     }
-    .account-nav a {
+    .menu-conta a {
         padding: 12px 10px;
         font-size: 13px;
     }
-    .account-main {
+    .conteudo-conta {
         max-width: none;
         padding: 32px 24px 64px;
     }
-    .account-section h2 {
+    .secao-conta h2 {
         font-size: 19px;
     }
-    .account-avatar {
+    .foto-conta {
         width: 88px;
         height: 88px;
     }
-    .account-security {
+    .seguranca-conta {
         margin-top: 48px;
     }
-    .account-row {
+    .campo-conta {
         gap: 10px 12px;
     }
-    .account-signout {
+    .sair-conta {
         margin-top: 48px;
     }
 }

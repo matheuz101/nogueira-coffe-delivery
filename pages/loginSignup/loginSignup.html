@@ -9,36 +9,36 @@
     <script src="loginSignup.js" defer></script>
 </head>
 <body>
-    <main class="auth-shell">
-        <a class="auth-brand" href="../../index.html" aria-label="Nogueira Coffe — página inicial">
+    <main class="pagina-login">
+        <a class="marca-login" href="../../index.html" aria-label="Nogueira Coffe — página inicial">
             <img src="../../imgs/nogueira-logo.png" alt="Nogueira Café — desde 2026" width="144" height="144">
         </a>
 
-        <section class="auth-content" aria-labelledby="login-title">
-            <h1 id="login-title" class="visually-hidden">Entre na sua conta</h1>
-            <form id="login-form" method="post">
-                <div class="auth-field">
-                    <label class="visually-hidden" for="email">E-mail</label>
+        <section class="conteudo-login" aria-labelledby="titulo-login">
+            <h1 id="titulo-login" class="texto-escondido">Entre na sua conta</h1>
+            <form id="formulario-login" method="post">
+                <div class="campo-login">
+                    <label class="texto-escondido" for="email">E-mail</label>
                     <input id="email" name="email" type="email" autocomplete="username" placeholder="Seu e-mail" required maxlength="254" spellcheck="false" autocapitalize="none">
                 </div>
-                <div class="auth-field password-field">
-                    <label class="visually-hidden" for="password">Senha</label>
-                    <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Sua senha" required>
-                    <button class="password-toggle" type="button" aria-label="Mostrar senha" aria-pressed="false" aria-controls="password">
+                <div class="campo-login campo-senha">
+                    <label class="texto-escondido" for="senha">Senha</label>
+                    <input id="senha" name="password" type="password" autocomplete="current-password" placeholder="Sua senha" required>
+                    <button class="mostrar-senha" type="button" aria-label="Mostrar senha" aria-pressed="false" aria-controls="senha">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                             <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/>
                             <circle cx="12" cy="12" r="3"/>
-                            <path class="eye-slash" d="m4 4 16 16"/>
+                            <path class="risco-olho" d="m4 4 16 16"/>
                         </svg>
                     </button>
                 </div>
-                <button class="auth-button auth-button-primary" type="submit">Entrar</button>
+                <button class="botao-login botao-entrar" type="submit">Entrar</button>
             </form>
         </section>
 
-        <footer class="auth-footer">
+        <footer class="rodape-login">
             <p>Primeira vez por aqui?</p>
-            <a class="auth-button auth-button-secondary" id="signup-link" href="../signup/signup.html">
+            <a class="botao-login botao-criar-conta" id="link-cadastro" href="../signup/signup.html">
                 <span>Criar uma conta</span>
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
             </a>

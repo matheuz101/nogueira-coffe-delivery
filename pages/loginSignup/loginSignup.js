@@ -1,9 +1,9 @@
-const form = document.querySelector('#login-form');
+const form = document.querySelector('#formulario-login');
 const emailInput = document.querySelector('#email');
-const passwordInput = document.querySelector('#password');
-const passwordToggle = document.querySelector('.password-toggle');
+const passwordInput = document.querySelector('#senha');
+const passwordToggle = document.querySelector('.mostrar-senha');
 const submitButton = document.querySelector('[type="submit"]');
-const signupLink = document.querySelector('#signup-link');
+const signupLink = document.querySelector('#link-cadastro');
 
 let enviando = false;
 

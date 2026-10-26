@@ -1,22 +1,22 @@
-const painelCarrinho = document.querySelector('#cart-panel');
-const painelProduto = document.querySelector('#product-dialog');
+const painelCarrinho = document.querySelector('#painel-carrinho');
+const painelProduto = document.querySelector('#detalhes-produto');
 const listaCarrinho = document.querySelector('[data-cart-items]');
 const totalCarrinho = document.querySelector('[data-cart-total]');
 const contadorCarrinho = document.querySelector('[data-cart-count]');
 const avisoCarrinho = document.querySelector('[data-cart-status]');
-const botaoCarrinho = document.querySelector('.header-cart');
+const botaoCarrinho = document.querySelector('.botao-carrinho');
 const chaveCarrinho = 'nogueira-coffe-cart';
 const produtos = {};
 const carrinho = {};
 let botaoOrigem;
 let posicaoPagina;
 
-document.querySelectorAll('.product-card').forEach(function (card) {
+document.querySelectorAll('.produto').forEach(function (card) {
     const id = card.dataset.productId;
     produtos[id] = {
         nome: card.querySelector('[data-product-name]').textContent.trim(),
         preco: Math.round(Number(card.querySelector('[data-product-price]').value) * 100),
-        imagem: card.querySelector('.product-image').getAttribute('src'),
+        imagem: card.querySelector('.imagem-produto').getAttribute('src'),
         descricao: card.querySelector('[data-product-description]')?.textContent.trim()
             || produtos[id]?.descricao || '',
     };
@@ -84,20 +84,20 @@ function mostrarProduto(id, botao) {
 function criarItemCarrinho(id, quantidade) {
     const produto = produtos[id];
     const item = document.createElement('article');
-    item.className = 'cart-item';
+    item.className = 'item-carrinho';
     item.dataset.cartProductId = id;
     item.innerHTML = `
-        <img class="cart-item-image" alt="">
-        <div class="cart-item-info">
-            <h3 class="cart-item-name"></h3>
-            <data class="cart-item-price"></data>
-            <div class="quantity-control" role="group">
+        <img class="imagem-item" alt="">
+        <div class="informacoes-item">
+            <h3 class="nome-item"></h3>
+            <data class="preco-item"></data>
+            <div class="controle-quantidade" role="group">
                 <button type="button" data-action="decrease-quantity">−</button>
                 <output aria-label="Quantidade"></output>
                 <button type="button" data-action="increase-quantity">+</button>
             </div>
         </div>
-        <button class="icon-button cart-item-remove" type="button" data-action="remove-from-cart">×</button>`;
+        <button class="botao-icone remover-item" type="button" data-action="remove-from-cart">×</button>`;
 
     item.querySelector('img').src = produto.imagem;
     item.querySelector('h3').textContent = produto.nome;
@@ -126,7 +126,7 @@ function atualizarCarrinho() {
     });
 
     if (quantidadeTotal === 0) {
-        listaCarrinho.innerHTML = '<p class="cart-empty">Seu carrinho está vazio. Escolha seus favoritos no cardápio.</p>';
+        listaCarrinho.innerHTML = '<p class="carrinho-vazio">Seu carrinho está vazio. Escolha seus favoritos no cardápio.</p>';
     }
     mostrarPreco(totalCarrinho, total);
     contadorCarrinho.textContent = quantidadeTotal;
@@ -171,7 +171,7 @@ document.addEventListener('click', function (evento) {
 listaCarrinho.addEventListener('click', function (evento) {
     const botao = evento.target.closest('button');
     if (!botao) return;
-    const item = botao.closest('.cart-item');
+    const item = botao.closest('.item-carrinho');
     const id = item.dataset.cartProductId;
     const acao = botao.dataset.action;
     const posicaoItem = [...listaCarrinho.children].indexOf(item);

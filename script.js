@@ -1,6 +1,6 @@
-﻿const header = document.querySelector('.site-header');
-const toggle = header.querySelector('.menu-toggle');
-const menu = header.querySelector('.header-menu');
+﻿const header = document.querySelector('.cabecalho');
+const toggle = header.querySelector('.botao-menu');
+const menu = header.querySelector('.menu-topo');
 const mobileViewport = window.matchMedia('(max-width: 1023px)');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let closeTimer;
@@ -67,7 +67,7 @@ function syncViewport() {
         if (focusWasInMenu) toggle.focus();
     } else {
         menu.parentElement.prepend(menu);
-        if (focusWasOnToggle) header.querySelector('.header-brand').focus();
+        if (focusWasOnToggle) header.querySelector('.marca-topo').focus();
     }
 }
 
@@ -106,7 +106,7 @@ document.addEventListener('click', (event) => {
 mobileViewport.addEventListener('change', syncViewport);
 syncViewport();
 
-const menuHeading = document.querySelector('.menu-heading');
+const menuHeading = document.querySelector('.chamada-cardapio');
 
 if (menuHeading && 'IntersectionObserver' in window && !reducedMotion.matches) {
     menuHeading.dataset.reveal = 'pending';
@@ -126,10 +126,10 @@ if (menuHeading && 'IntersectionObserver' in window && !reducedMotion.matches) {
     });
 }
 
-const traditionSection = document.querySelector('.tradition');
+const traditionSection = document.querySelector('.tradicao');
 
-const menuSelectionBody = document.querySelector('.menu-selection-body');
-const siteFooter = document.querySelector('.site-footer');
+const menuSelectionBody = document.querySelector('.conteudo-opcoes');
+const siteFooter = document.querySelector('.rodape');
 
 if (menuSelectionBody) {
     let surfaceFrame;
@@ -155,15 +155,15 @@ if (menuSelectionBody) {
 }
 
 if (traditionSection) {
-    const stage = traditionSection.querySelector('.tradition-stage');
-    const title = traditionSection.querySelector('#tradition-title');
-    const ring = traditionSection.querySelector('.tradition-highlight');
-    const foreground = traditionSection.querySelector('.tradition-foreground');
+    const stage = traditionSection.querySelector('.area-tradicao');
+    const title = traditionSection.querySelector('#titulo-tradicao');
+    const ring = traditionSection.querySelector('.destaque-tradicao');
+    const foreground = traditionSection.querySelector('.frente-tradicao');
     const video = traditionSection.querySelector('video');
-    const videoWrap = traditionSection.querySelector('.tradition-video-wrap');
-    const videoToggle = traditionSection.querySelector('.tradition-video-toggle');
-    const pauseIcon = videoToggle.querySelector('.tradition-pause-icon');
-    const playIcon = videoToggle.querySelector('.tradition-play-icon');
+    const videoWrap = traditionSection.querySelector('.area-video');
+    const videoToggle = traditionSection.querySelector('.botao-video');
+    const pauseIcon = videoToggle.querySelector('.icone-pausar');
+    const playIcon = videoToggle.querySelector('.icone-reproduzir');
     let frame;
     let videoInView = false;
     let userPausedVideo = false;

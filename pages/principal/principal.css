@@ -65,7 +65,7 @@ ul {
     color: var(--color-white);
 }
 
-.visually-hidden {
+.texto-escondido {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -77,7 +77,7 @@ ul {
     border: 0;
 }
 
-.skip-link {
+.pular-conteudo {
     position: fixed;
     top: -80px;
     left: 16px;
@@ -85,11 +85,11 @@ ul {
     padding: 12px 16px;
     background: var(--color-white);
 }
-.skip-link:focus {
+.pular-conteudo:focus {
     top: 12px;
 }
 
-.catalog-header {
+.cabecalho-cardapio {
     position: sticky;
     top: 0;
     z-index: 10;
@@ -97,7 +97,7 @@ ul {
     background: var(--color-background);
 }
 
-.catalog-header-inner {
+.conteudo-cabecalho {
     display: flex;
     align-items: center;
     gap: 24px;
@@ -107,7 +107,7 @@ ul {
     padding: 16px 32px;
 }
 
-.icon-button {
+.botao-icone {
     display: inline-grid;
     place-items: center;
     flex-shrink: 0;
@@ -117,38 +117,38 @@ ul {
     border-radius: 50%;
     background: transparent;
 }
-.icon-button:hover {
+.botao-icone:hover {
     background: #EEE3D8;
 }
-.menu-symbol, .menu-symbol::before, .menu-symbol::after {
+.simbolo-menu, .simbolo-menu::before, .simbolo-menu::after {
     display: block;
     width: 23px;
     height: 2px;
     border-radius: 2px;
     background: var(--color-primary);
 }
-.menu-symbol {
+.simbolo-menu {
     position: relative;
 }
-.menu-symbol::before, .menu-symbol::after {
+.simbolo-menu::before, .simbolo-menu::after {
     position: absolute;
     content: "";
     left: 0;
 }
-.menu-symbol::before {
+.simbolo-menu::before {
     top: -7px;
 }
-.menu-symbol::after {
+.simbolo-menu::after {
     top: 7px;
 }
-.catalog-brand {
+.marca-cardapio {
     color: var(--color-primary);
     font-family: "Just Me Again Down Here", cursive;
     font-size: 36px;
     white-space: nowrap;
     line-height: 1.15;
 }
-.address-button {
+.botao-endereco {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -160,14 +160,14 @@ ul {
     background: var(--color-white);
     font-size: 16px;
 }
-.header-actions {
+.botoes-topo {
     display: flex;
     align-items: center;
     gap: 20px;
     margin-left: auto;
     color: var(--color-primary);
 }
-.header-login, .header-signup {
+.link-entrar, .link-cadastrar {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -175,46 +175,46 @@ ul {
     font-size: 16px;
     white-space: nowrap;
 }
-.header-signup {
+.link-cadastrar {
     min-width: 100px;
     padding: 8px 20px;
     border-radius: 24px;
     background: var(--color-white);
 }
-.header-login:hover, .catalog-brand:hover {
+.link-entrar:hover, .marca-cardapio:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
 }
-.header-signup:hover, .address-button:hover {
+.link-cadastrar:hover, .botao-endereco:hover {
     background: #EEE3D8;
 }
 
-.catalog-layout {
+.pagina-cardapio {
     display: grid;
     grid-template-columns: clamp(216px, 24.3056vw, 350px) minmax(0, 1fr);
     max-width: 1440px;
     margin: auto;
 }
-.catalog-sidebar {
+.lateral-cardapio {
     border-right: 1px solid var(--color-line);
     padding: 32px 0 48px clamp(24px, 7.5694vw, 109px);
 }
-.category-nav {
+.menu-categorias {
     position: sticky;
     top: calc(var(--header-height) + 32px);
 }
-.category-nav h2 {
+.menu-categorias h2 {
     color: var(--color-primary);
     font-size: 20px;
     font-weight: 600;
 }
-.opening-hours {
+.horario {
     margin-top: 10px;
     margin-bottom: 28px;
     color: var(--color-muted);
     font-size: 16px;
 }
-.category-nav a {
+.menu-categorias a {
     display: flex;
     align-items: center;
     min-height: 55px;
@@ -223,48 +223,48 @@ ul {
     font-size: 16px;
     line-height: 1.4;
 }
-.category-nav a:hover, .category-nav a:focus-visible {
+.menu-categorias a:hover, .menu-categorias a:focus-visible {
     border-left-color: var(--color-primary);
     background: var(--color-white);
 }
-body:not(:has(.catalog-section:target)) .category-nav a[href="#salgados"],
-body:has(#destaques:target) .category-nav a[href="#destaques"],
-body:has(#salgados:target) .category-nav a[href="#salgados"],
-body:has(#cafes:target) .category-nav a[href="#cafes"],
-body:has(#bebidas-geladas:target) .category-nav a[href="#bebidas-geladas"],
-body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativas"] {
+body:not(:has(.secao-produtos:target)) .menu-categorias a[href="#salgados"],
+body:has(#destaques:target) .menu-categorias a[href="#destaques"],
+body:has(#salgados:target) .menu-categorias a[href="#salgados"],
+body:has(#cafes:target) .menu-categorias a[href="#cafes"],
+body:has(#bebidas-geladas:target) .menu-categorias a[href="#bebidas-geladas"],
+body:has(#bebidas-alternativas:target) .menu-categorias a[href="#bebidas-alternativas"] {
     border-left-color: var(--color-primary);
     background: var(--color-white);
 }
 
-.catalog-main {
+.conteudo-cardapio {
     min-width: 0;
     padding: 32px 64px 120px 24px;
 }
-.catalog-banner-link {
+.link-banner {
     display: block;
     border-radius: 20px;
 }
-.catalog-banner {
+.banner-cardapio {
     width: 100%;
     height: 200px;
     border-radius: 20px;
     object-fit: cover;
     object-position: center 58%;
 }
-.catalog-search {
+.busca-cardapio {
     position: relative;
     display: flex;
     align-items: center;
     width: min(100%, 300px);
     margin: 32px 0 32px auto;
 }
-.catalog-search > img {
+.busca-cardapio > img {
     position: absolute;
     left: 14px;
     pointer-events: none;
 }
-.catalog-search input {
+.busca-cardapio input {
     width: 100%;
     height: 44px;
     padding: 10px 16px 10px 48px;
@@ -274,33 +274,33 @@ body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativ
     color: inherit;
     font-size: 16px;
 }
-.catalog-search input::placeholder {
+.busca-cardapio input::placeholder {
     color: var(--color-muted);
     opacity: 1;
 }
-.delivery-card {
+.quadro-entrega {
     padding: 18px 20px 22px;
     border: 1px solid #8A7F75;
     border-radius: 20px;
 }
-.delivery-options {
+.opcoes-entrega {
     display: inline-flex;
     padding: 3px;
     border: 0;
     border-radius: 24px;
     background: #DEDAD6;
 }
-.delivery-option {
+.opcao-entrega {
     position: relative;
     cursor: pointer;
 }
-.delivery-option input {
+.opcao-entrega input {
     position: absolute;
     width: 1px;
     height: 1px;
     opacity: 0;
 }
-.delivery-option span {
+.opcao-entrega span {
     display: block;
     min-width: 76px;
     padding: 9px 12px;
@@ -308,15 +308,15 @@ body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativ
     font-size: 14px;
     text-align: center;
 }
-.delivery-option input:checked + span {
+.opcao-entrega input:checked + span {
     background: var(--color-white);
     box-shadow: 0 1px 4px rgb(62 39 35 / 18%);
 }
-.delivery-option input:focus-visible + span {
+.opcao-entrega input:focus-visible + span {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
-.delivery-address {
+.endereco-entrega {
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -325,52 +325,52 @@ body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativ
     font-size: 16px;
     line-height: 1.6;
 }
-.delivery-address img {
+.endereco-entrega img {
     flex-shrink: 0;
     margin-top: 2px;
 }
-.delivery-address p + p {
+.endereco-entrega p + p {
     margin-top: 4px;
 }
-.catalog-section {
+.secao-produtos {
     margin-top: 40px;
 }
-.section-header {
+.cabecalho-secao {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
     margin-bottom: 24px;
 }
-.section-header h2 {
+.cabecalho-secao h2 {
     font-size: 25px;
     font-weight: 600;
     line-height: 1.35;
     letter-spacing: -0.5px;
 }
-.section-controls {
+.botoes-secao {
     display: flex;
     gap: 10px;
 }
-.section-controls .icon-button {
+.botoes-secao .botao-icone {
     background: #E5E0DB;
     color: #8E8882;
     font-size: 24px;
 }
-.product-grid {
+.lista-produtos {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 28px;
 }
-.product-grid--horizontal {
+.lista-horizontal {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
 }
-.product-card {
+.produto {
     position: relative;
     min-width: 0;
 }
-.product-trigger {
+.abrir-produto {
     position: absolute;
     inset: 0;
     z-index: 1;
@@ -379,30 +379,30 @@ body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativ
     border-radius: 20px;
     background: transparent;
 }
-.product-trigger:focus-visible {
+.abrir-produto:focus-visible {
     outline-offset: 5px;
 }
-.product-media {
+.foto-produto {
     position: relative;
     overflow: hidden;
     aspect-ratio: 9 / 8;
     border-radius: 20px;
     background: #E7DFD6;
 }
-.product-image {
+.imagem-produto {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.product-info {
+.informacoes-produto {
     padding-top: 14px;
 }
-.product-name {
+.nome-produto {
     font-size: 16px;
     font-weight: 500;
     line-height: 1.4;
 }
-.product-meta {
+.valores-produto {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -412,14 +412,14 @@ body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativ
     font-size: 14px;
     line-height: 1.5;
 }
-.product-rating {
+.avaliacao-produto {
     white-space: nowrap;
 }
-.product-rating::before {
+.avaliacao-produto::before {
     content: "✓";
     margin-right: 5px;
 }
-.product-badge {
+.selo-produto {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -431,7 +431,7 @@ body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativ
     line-height: 1.4;
     box-shadow: 0 2px 4px rgb(0 0 0 / 14%);
 }
-.product-add {
+.adicionar-produto {
     position: absolute;
     right: 8px;
     bottom: 8px;
@@ -445,28 +445,28 @@ body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativ
     background: var(--color-white);
     box-shadow: 0 2px 5px rgb(0 0 0 / 18%);
 }
-.product-add:hover {
+.adicionar-produto:hover {
     background: #F1E8DF;
 }
-.product-card--horizontal {
+.produto-horizontal {
     display: grid;
     grid-template-columns: 3fr 2fr;
     min-height: 180px;
     border-radius: 20px;
     background: #EFE7DE;
 }
-.product-card--horizontal .product-info {
+.produto-horizontal .informacoes-produto {
     min-width: 0;
     padding: 20px;
 }
-.product-card--horizontal .product-name {
+.produto-horizontal .nome-produto {
     font-size: 18px;
 }
-.product-card--horizontal .product-meta {
+.produto-horizontal .valores-produto {
     margin-top: 5px;
     font-size: 13px;
 }
-.product-description {
+.descricao-produto {
     display: -webkit-box;
     overflow: hidden;
     margin-top: 10px;
@@ -477,61 +477,61 @@ body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativ
     -webkit-line-clamp: 2;
     line-clamp: 2;
 }
-.product-card--horizontal .product-media {
+.produto-horizontal .foto-produto {
     min-height: 180px;
     height: 100%;
     aspect-ratio: auto;
     border-radius: 0 20px 20px 0;
 }
 
-.catalog-footer {
+.rodape-cardapio {
     background: #000000;
     color: var(--color-white);
 }
-.footer-main {
+.conteudo-rodape {
     max-width: 1440px;
     margin: auto;
     padding: 0 40px 120px;
     text-align: center;
 }
-.footer-brand {
+.marca-rodape {
     display: block;
     width: min(100%, 400px);
     margin: auto;
 }
-.footer-logo {
+.logo-rodape {
     width: 100%;
     height: auto;
     filter: brightness(0) invert(1);
 }
-.footer-columns {
+.colunas-rodape {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 32px;
     margin: 28px auto 0;
 }
-.footer-column h2 {
+.coluna-rodape h2 {
     font-size: 22px;
     font-weight: 600;
     line-height: 1.4;
 }
-.footer-links {
+.links-rodape {
     display: grid;
     gap: 12px;
     margin-top: 24px;
 }
-.footer-link {
+.link-rodape {
     display: inline-flex;
     align-items: center;
     min-height: 36px;
     font-size: 20px;
     line-height: 1.5;
 }
-.footer-link:hover {
+.link-rodape:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
 }
-.footer-address {
+.endereco-rodape {
     display: grid;
     gap: 20px;
     margin-top: 28px;
@@ -539,16 +539,16 @@ body:has(#bebidas-alternativas:target) .category-nav a[href="#bebidas-alternativ
     font-style: normal;
     line-height: 1.5;
 }
-.footer-bottom {
+.fim-rodape {
     border-top: 1px solid #6D6D6D;
     padding: 30px 32px;
     font-size: 20px;
     line-height: 1.5;
 }
-.footer-unavailable {
+.link-indisponivel {
     color: #BEBAB5;
 }
-.catalog-footer :where(a, button):focus-visible {
+.rodape-cardapio :where(a, button):focus-visible {
     outline-color: var(--color-white);
 }
 
@@ -562,11 +562,11 @@ dialog:not([open]) {
 dialog::backdrop {
     background: rgb(23 20 17 / 30%);
 }
-.dialog-close {
+.fechar-painel {
     font-size: 32px;
     line-height: 1;
 }
-.drawer {
+.painel-lateral {
     position: fixed;
     top: 0;
     bottom: auto;
@@ -581,23 +581,23 @@ dialog::backdrop {
     margin: 0;
     background: var(--color-background);
 }
-.drawer--user {
+.painel-usuario {
     left: 0;
     right: auto;
     width: min(100% - 24px, 400px);
     background: var(--color-white);
 }
-.drawer--cart {
+.painel-carrinho {
     right: 0;
     left: auto;
 }
-.drawer[open] {
+.painel-lateral[open] {
     animation: drawer-enter 0.3s ease;
 }
-.drawer--user {
+.painel-usuario {
     --drawer-offset: -100%;
 }
-.drawer--cart {
+.painel-carrinho {
     --drawer-offset: 100%;
 }
 body:has(dialog[open]) {
@@ -608,54 +608,54 @@ body:has(dialog[open]) {
     to { transform: translateX(0); }
 }
 @media (prefers-reduced-motion: reduce) {
-    .drawer[open] {
+    .painel-lateral[open] {
         animation: none;
     }
 }
-.drawer-close {
+.fechar-lateral {
     position: absolute;
     top: 12px;
     right: 12px;
 }
-.user-panel-content {
+.conteudo-usuario {
     display: flex;
     flex-direction: column;
     min-height: 100%;
 }
-.user-panel-profile {
+.perfil-usuario {
     display: flex;
     align-items: center;
     gap: 16px;
     padding: 40px 28px 28px;
 }
-.user-avatar {
+.foto-usuario {
     flex-shrink: 0;
     width: 64px;
     height: 64px;
     border-radius: 50%;
     background: #D9D9D9;
 }
-.user-panel-name {
+.nome-usuario {
     font-size: 18px;
     font-weight: 600;
 }
-.user-panel-account {
+.link-conta {
     display: inline-block;
     margin-top: 6px;
     color: #6E2E01;
     font-size: 16px;
     font-weight: 600;
 }
-.user-panel-account:hover {
+.link-conta:hover {
     text-decoration: underline;
     text-underline-offset: 3px;
 }
-.user-panel-nav {
+.menu-usuario {
     display: grid;
     gap: 8px;
     padding: 0 20px;
 }
-.user-panel-link {
+.opcao-usuario {
     display: flex;
     align-items: center;
     gap: 14px;
@@ -666,15 +666,15 @@ body:has(dialog[open]) {
     text-align: left;
     font-size: 17px;
 }
-.user-panel-icon {
+.icone-usuario {
     display: grid;
     place-items: center;
     flex: 0 0 36px;
 }
-.user-panel-link:hover, .user-panel-role:hover {
+.opcao-usuario:hover, .botao-area:hover {
     background: #F5EFE8;
 }
-.user-panel-signout {
+.sair-usuario {
     align-self: flex-start;
     min-height: 44px;
     margin: 56px 28px 40px;
@@ -683,26 +683,26 @@ body:has(dialog[open]) {
     color: #B21313;
     font-size: 16px;
 }
-.user-panel-roles {
+.areas-usuario {
     display: grid;
     gap: 12px;
     margin-top: auto;
     padding: 32px 20px;
     border-top: 1px solid var(--color-line);
 }
-.user-panel-role {
+.botao-area {
     min-height: 48px;
     padding: 10px 8px;
     background: transparent;
     text-align: left;
     font-size: 16px;
 }
-.cart-panel-content {
+.conteudo-carrinho {
     display: flex;
     flex-direction: column;
     min-height: 100%;
 }
-.cart-header {
+.cabecalho-carrinho {
     position: relative;
     display: flex;
     align-items: center;
@@ -711,16 +711,16 @@ body:has(dialog[open]) {
     padding: 20px 64px;
     border-bottom: 1px solid var(--color-line);
 }
-.cart-header h2 {
+.cabecalho-carrinho h2 {
     font-size: 28px;
     font-weight: 600;
 }
-.cart-header .dialog-close {
+.cabecalho-carrinho .fechar-painel {
     position: absolute;
     left: 20px;
     top: 22px;
 }
-.cart-item {
+.item-carrinho {
     position: relative;
     display: grid;
     grid-template-columns: 128px minmax(0, 1fr);
@@ -728,24 +728,24 @@ body:has(dialog[open]) {
     padding: 24px 52px 24px 24px;
     border-bottom: 1px solid var(--color-line);
 }
-.cart-item-image {
+.imagem-item {
     width: 128px;
     height: 128px;
     object-fit: cover;
     background: var(--color-white);
 }
-.cart-item-name {
+.nome-item {
     font-size: 16px;
     font-weight: 500;
     line-height: 1.45;
 }
-.cart-item-price {
+.preco-item {
     display: block;
     margin-top: 10px;
     color: var(--color-muted);
     font-size: 14px;
 }
-.cart-item-remove {
+.remover-item {
     position: absolute;
     top: 18px;
     right: 12px;
@@ -753,13 +753,13 @@ body:has(dialog[open]) {
     height: 36px;
     font-size: 25px;
 }
-.quantity-control {
+.controle-quantidade {
     display: inline-flex;
     align-items: center;
     margin-top: 20px;
     background: var(--color-white);
 }
-.quantity-control button {
+.controle-quantidade button {
     display: grid;
     place-items: center;
     width: 40px;
@@ -768,12 +768,12 @@ body:has(dialog[open]) {
     background: transparent;
     font-size: 20px;
 }
-.quantity-control output {
+.controle-quantidade output {
     min-width: 36px;
     text-align: center;
     font-size: 14px;
 }
-.cart-total {
+.total-carrinho {
     display: flex;
     justify-content: space-between;
     gap: 24px;
@@ -781,11 +781,11 @@ body:has(dialog[open]) {
     font-size: 18px;
     font-weight: 600;
 }
-.cart-checkout {
+.finalizar-pedido {
     margin: auto 24px 24px;
     padding-top: 24px;
 }
-.primary-button {
+.botao-principal {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -799,33 +799,33 @@ body:has(dialog[open]) {
     line-height: 1.4;
     text-align: center;
 }
-.primary-button:hover {
+.botao-principal:hover {
     background: #271915;
 }
-.cart-checkout .primary-button {
+.finalizar-pedido .botao-principal {
     width: 100%;
     border-radius: 0;
 }
-.primary-button:disabled {
+.botao-principal:disabled {
     cursor: not-allowed;
     opacity: 0.55;
 }
-.cart-empty {
+.carrinho-vazio {
     padding: 32px 24px;
     color: var(--color-muted);
     line-height: 1.6;
 }
-.checkout-note {
+.aviso-pedido {
     margin-top: 12px;
     color: var(--color-muted);
     font-size: 13px;
     line-height: 1.5;
     text-align: center;
 }
-.header-cart {
+.botao-carrinho {
     position: relative;
 }
-.cart-count {
+.contador-carrinho {
     position: absolute;
     top: 0;
     right: -4px;
@@ -837,7 +837,7 @@ body:has(dialog[open]) {
     font-size: 11px;
     line-height: 16px;
 }
-.product-dialog {
+.detalhes-produto {
     position: fixed;
     inset: 0;
     width: min(900px, calc(100% - 48px));
@@ -849,82 +849,82 @@ body:has(dialog[open]) {
     border-radius: 20px;
     background: var(--color-white);
 }
-.product-dialog > .dialog-close {
+.detalhes-produto > .fechar-painel {
     position: absolute;
     top: 12px;
     right: 12px;
 }
-.product-dialog-layout {
+.area-detalhes {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 32px;
 }
-.product-dialog-copy h2 {
+.texto-detalhes h2 {
     margin: 4px 0 24px;
     font-size: 30px;
     font-weight: 500;
     line-height: 1.3;
 }
-.product-dialog-description {
+.descricao-detalhes {
     color: var(--color-muted);
     font-size: 18px;
     line-height: 1.5;
 }
-.product-dialog-price {
+.preco-detalhes {
     display: block;
     margin-top: 32px;
     color: var(--color-muted);
     font-size: 18px;
 }
-.product-dialog-image {
+.imagem-detalhes {
     width: 100%;
     aspect-ratio: 20 / 19;
     border-radius: 20px;
     object-fit: cover;
 }
-.product-dialog-footer {
+.rodape-detalhes {
     margin-top: 72px;
 }
 
 @media (max-width: 1199px) {
-    .catalog-header-inner {
+    .conteudo-cabecalho {
         gap: 16px;
         padding-inline: 24px;
     }
-    .catalog-brand {
+    .marca-cardapio {
         font-size: 30px;
     }
-    .header-actions {
+    .botoes-topo {
         gap: 12px;
     }
-    .address-button {
+    .botao-endereco {
         min-width: 148px;
     }
-    .catalog-sidebar {
+    .lateral-cardapio {
         padding-left: 24px;
     }
-    .catalog-main {
+    .conteudo-cardapio {
         padding-right: 32px;
     }
-    .product-grid {
+    .lista-produtos {
         gap: 20px;
     }
-    .product-name {
+    .nome-produto {
         font-size: 14px;
     }
-    .product-card--horizontal .product-info {
+    .produto-horizontal .informacoes-produto {
         padding: 18px 16px;
     }
-    .product-card--horizontal .product-name {
+    .produto-horizontal .nome-produto {
         font-size: 16px;
     }
-    .product-description {
+    .descricao-produto {
         font-size: 13px;
     }
-    .footer-column h2 {
+    .coluna-rodape h2 {
         font-size: 18px;
     }
-    .footer-link, .footer-address {
+    .link-rodape, .endereco-rodape {
         font-size: 16px;
     }
 }
@@ -933,90 +933,90 @@ body:has(dialog[open]) {
     :root {
         --header-height: 80px;
     }
-    .catalog-header-inner {
+    .conteudo-cabecalho {
         gap: 12px;
         padding-inline: 16px;
     }
-    .catalog-brand {
+    .marca-cardapio {
         font-size: 26px;
     }
-    .address-button {
+    .botao-endereco {
         min-width: auto;
         padding-inline: 12px;
         font-size: 14px;
     }
-    .header-login, .header-signup {
+    .link-entrar, .link-cadastrar {
         font-size: 14px;
     }
-    .header-signup {
+    .link-cadastrar {
         min-width: auto;
         padding-inline: 14px;
     }
-    .catalog-layout {
+    .pagina-cardapio {
         grid-template-columns: minmax(0, 1fr);
     }
-    .catalog-sidebar {
+    .lateral-cardapio {
         min-width: 0;
         padding: 20px 24px 0;
         border: 0;
     }
-    .category-nav {
+    .menu-categorias {
         position: static;
     }
-    .category-nav-heading {
+    .titulo-categorias {
         display: flex;
         align-items: baseline;
         gap: 14px;
     }
-    .category-nav h2 {
+    .menu-categorias h2 {
         font-size: 18px;
     }
-    .opening-hours {
+    .horario {
         margin: 0;
         font-size: 14px;
     }
-    .category-nav ul {
+    .menu-categorias ul {
         display: flex;
         gap: 8px;
         overflow-x: auto;
         padding: 14px 0 4px;
     }
-    .category-nav li {
+    .menu-categorias li {
         flex-shrink: 0;
     }
-    .category-nav a {
+    .menu-categorias a {
         min-height: 44px;
         padding: 10px 14px;
         border: 1px solid #D6C9BC;
         border-radius: 24px;
         font-size: 13px;
     }
-    .category-nav a:hover {
+    .menu-categorias a:hover {
         border-color: var(--color-primary);
     }
-    .catalog-main {
+    .conteudo-cardapio {
         padding: 24px 24px 80px;
     }
-    .product-name {
+    .nome-produto {
         font-size: 15px;
     }
-    .section-header h2 {
+    .cabecalho-secao h2 {
         font-size: 23px;
     }
-    .footer-main {
+    .conteudo-rodape {
         padding-inline: 24px;
         padding-bottom: 80px;
     }
-    .footer-brand {
+    .marca-rodape {
         width: 320px;
     }
-    .footer-columns {
+    .colunas-rodape {
         gap: 20px;
     }
-    .footer-column h2 {
+    .coluna-rodape h2 {
         font-size: 16px;
     }
-    .footer-bottom {
+    .fim-rodape {
         font-size: 16px;
     }
 }
@@ -1025,23 +1025,23 @@ body:has(dialog[open]) {
     :root {
         --header-height: 128px;
     }
-    .catalog-header-inner {
+    .conteudo-cabecalho {
         display: grid;
         grid-template-columns: 44px minmax(0, 1fr) auto;
         gap: 4px 8px;
         padding: 8px 16px;
     }
-    .catalog-brand {
+    .marca-cardapio {
         font-size: 28px;
     }
-    .header-actions {
+    .botoes-topo {
         display: contents;
     }
-    .header-cart {
+    .botao-carrinho {
         grid-column: 3;
         grid-row: 1;
     }
-    .address-button {
+    .botao-endereco {
         grid-column: 1 / span 2;
         grid-row: 2;
         justify-self: start;
@@ -1049,257 +1049,257 @@ body:has(dialog[open]) {
         min-height: 40px;
         font-size: 13px;
     }
-    .header-login {
+    .link-entrar {
         grid-column: 2;
         grid-row: 2;
         justify-self: end;
         font-size: 13px;
     }
-    .header-signup {
+    .link-cadastrar {
         grid-column: 3;
         grid-row: 2;
         min-height: 36px;
         padding-inline: 12px;
         font-size: 13px;
     }
-    .catalog-sidebar {
+    .lateral-cardapio {
         padding: 20px 20px 0;
     }
-    .catalog-main {
+    .conteudo-cardapio {
         padding: 20px 20px 64px;
     }
-    .catalog-banner {
+    .banner-cardapio {
         height: 160px;
         border-radius: 16px;
     }
-    .catalog-search {
+    .busca-cardapio {
         width: 100%;
         margin-block: 20px;
     }
-    .delivery-card {
+    .quadro-entrega {
         padding: 16px;
         border-radius: 16px;
     }
-    .delivery-address {
+    .endereco-entrega {
         gap: 8px;
         font-size: 14px;
     }
-    .catalog-section {
+    .secao-produtos {
         margin-top: 32px;
     }
-    .section-header {
+    .cabecalho-secao {
         margin-bottom: 20px;
     }
-    .section-header h2 {
+    .cabecalho-secao h2 {
         font-size: 21px;
     }
-    .section-controls {
+    .botoes-secao {
         gap: 4px;
     }
-    .section-controls .icon-button {
+    .botoes-secao .botao-icone {
         width: 36px;
         height: 36px;
         font-size: 21px;
     }
-    .product-grid {
+    .lista-produtos {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 24px 16px;
     }
-    .product-grid--horizontal {
+    .lista-horizontal {
         grid-template-columns: minmax(0, 1fr);
         gap: 16px;
     }
-    .product-media {
+    .foto-produto {
         border-radius: 16px;
     }
-    .product-add {
+    .adicionar-produto {
         width: 44px;
         height: 44px;
         right: 6px;
         bottom: 6px;
     }
-    .product-badge {
+    .selo-produto {
         top: 8px;
         left: 8px;
         font-size: 9px;
     }
-    .product-name {
+    .nome-produto {
         font-size: 14px;
     }
-    .product-meta {
+    .valores-produto {
         font-size: 12px;
     }
-    .product-card--horizontal {
+    .produto-horizontal {
         min-height: 156px;
         border-radius: 16px;
     }
-    .product-card--horizontal .product-info {
+    .produto-horizontal .informacoes-produto {
         padding: 18px;
     }
-    .product-card--horizontal .product-media {
+    .produto-horizontal .foto-produto {
         min-height: 156px;
         border-radius: 0 16px 16px 0;
     }
-    .product-card--horizontal .product-name {
+    .produto-horizontal .nome-produto {
         font-size: 16px;
     }
-    .product-card--horizontal .product-description {
+    .produto-horizontal .descricao-produto {
         font-size: 13px;
         -webkit-line-clamp: 3;
         line-clamp: 3;
     }
-    .footer-main {
+    .conteudo-rodape {
         padding-bottom: 56px;
     }
-    .footer-brand {
+    .marca-rodape {
         width: 260px;
     }
-    .footer-columns {
+    .colunas-rodape {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 40px 16px;
         margin-top: 8px;
     }
-    .footer-location {
+    .local-rodape {
         grid-column: 1 / -1;
     }
-    .footer-column h2 {
+    .coluna-rodape h2 {
         font-size: 14px;
     }
-    .footer-links {
+    .links-rodape {
         gap: 6px;
         margin-top: 16px;
     }
-    .footer-link {
+    .link-rodape {
         min-height: 44px;
         font-size: 14px;
     }
-    .footer-address {
+    .endereco-rodape {
         gap: 12px;
         margin-top: 20px;
         font-size: 14px;
     }
-    .footer-bottom {
+    .fim-rodape {
         padding: 24px;
         font-size: 13px;
         text-align: center;
     }
-    .cart-header {
+    .cabecalho-carrinho {
         min-height: 76px;
     }
-    .cart-header h2 {
+    .cabecalho-carrinho h2 {
         font-size: 24px;
     }
-    .cart-header .dialog-close {
+    .cabecalho-carrinho .fechar-painel {
         left: 12px;
         top: 16px;
     }
-    .cart-item {
+    .item-carrinho {
         grid-template-columns: 88px minmax(0, 1fr);
         gap: 14px;
         padding: 20px 40px 20px 16px;
     }
-    .cart-item-image {
+    .imagem-item {
         width: 88px;
         height: 104px;
     }
-    .cart-item-name {
+    .nome-item {
         font-size: 14px;
     }
-    .cart-item-price {
+    .preco-item {
         margin-top: 8px;
         font-size: 13px;
     }
-    .cart-item-remove {
+    .remover-item {
         right: 4px;
         top: 12px;
     }
-    .quantity-control {
+    .controle-quantidade {
         margin-top: 14px;
     }
-    .quantity-control button {
+    .controle-quantidade button {
         width: 36px;
         height: 36px;
     }
-    .quantity-control output {
+    .controle-quantidade output {
         min-width: 28px;
     }
-    .cart-total {
+    .total-carrinho {
         padding: 28px 16px;
         font-size: 16px;
     }
-    .cart-checkout {
+    .finalizar-pedido {
         margin-inline: 16px;
         margin-bottom: 16px;
     }
-    .product-dialog {
+    .detalhes-produto {
         width: calc(100% - 32px);
         max-height: calc(100svh - 32px);
         padding: 60px 24px 24px;
         border-radius: 16px;
     }
-    .product-dialog-layout {
+    .area-detalhes {
         grid-template-columns: minmax(0, 1fr);
         gap: 24px;
     }
-    .product-dialog-image {
+    .imagem-detalhes {
         grid-row: 1;
         aspect-ratio: 4 / 3;
         border-radius: 12px;
     }
-    .product-dialog-copy h2 {
+    .texto-detalhes h2 {
         margin: 0 0 16px;
         font-size: 24px;
     }
-    .product-dialog-description {
+    .descricao-detalhes {
         font-size: 16px;
     }
-    .product-dialog-price {
+    .preco-detalhes {
         margin-top: 20px;
         font-size: 16px;
     }
-    .product-dialog-footer {
+    .rodape-detalhes {
         margin-top: 28px;
     }
-    .product-dialog-footer .primary-button {
+    .rodape-detalhes .botao-principal {
         width: 100%;
     }
 }
 
 @media (max-width: 359px) {
-    .catalog-header-inner {
+    .conteudo-cabecalho {
         padding-inline: 8px;
         gap: 4px;
     }
-    .catalog-brand {
+    .marca-cardapio {
         font-size: 24px;
     }
-    .address-button {
+    .botao-endereco {
         padding-inline: 8px;
         margin-left: 0;
         font-size: 12px;
     }
-    .header-login, .header-signup {
+    .link-entrar, .link-cadastrar {
         font-size: 12px;
     }
-    .header-signup {
+    .link-cadastrar {
         padding-inline: 8px;
     }
-    .catalog-sidebar {
+    .lateral-cardapio {
         padding-inline: 16px;
     }
-    .catalog-main {
+    .conteudo-cardapio {
         padding-inline: 16px;
     }
-    .section-header h2 {
+    .cabecalho-secao h2 {
         font-size: 19px;
     }
-    .section-controls {
+    .botoes-secao {
         display: none;
     }
-    .product-grid {
+    .lista-produtos {
         gap: 24px 12px;
     }
-    .footer-columns {
+    .colunas-rodape {
         grid-template-columns: minmax(0, 1fr);
     }
 }

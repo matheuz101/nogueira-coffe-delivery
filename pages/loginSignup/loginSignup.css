@@ -24,7 +24,7 @@ a {
     color: inherit;
 }
 
-.auth-shell {
+.pagina-login {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,28 +35,28 @@ a {
     padding: 8px 0 24px;
 }
 
-.auth-brand {
+.marca-login {
     display: block;
     flex-shrink: 0;
     margin-bottom: 0;
     border-radius: 12px;
 }
 
-.auth-brand img {
+.marca-login img {
     display: block;
     width: 128px;
     height: 128px;
 }
 
-.auth-content, .auth-footer {
+.conteudo-login, .rodape-login {
     width: 100%;
 }
 
-.auth-field {
+.campo-login {
     margin-bottom: 12px;
 }
 
-.auth-field input {
+.campo-login input {
     display: block;
     width: 100%;
     min-height: 50px;
@@ -71,26 +71,26 @@ a {
     transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
-.auth-field input::placeholder {
+.campo-login input::placeholder {
     color: #756D65;
     opacity: 1;
 }
 
-.auth-field input:focus {
+.campo-login input:focus {
     border-color: #3E2723;
     outline: 2px solid #3E2723;
     outline-offset: 3px;
     box-shadow: none;
 }
 
-.password-field {
+.campo-senha {
     position: relative;
 }
-.password-field input {
+.campo-senha input {
     padding-right: 52px;
 }
 
-.password-toggle {
+.mostrar-senha {
     display: grid;
     place-items: center;
     position: absolute;
@@ -106,18 +106,18 @@ a {
     cursor: pointer;
 }
 
-.password-toggle:hover {
+.mostrar-senha:hover {
     color: #171411;
     background: #FBF5EE;
 }
-.eye-slash {
+.risco-olho {
     display: none;
 }
-.password-toggle[aria-pressed="true"] .eye-slash {
+.mostrar-senha[aria-pressed="true"] .risco-olho {
     display: block;
 }
 
-.auth-button {
+.botao-login {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -136,28 +136,28 @@ a {
     transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
-.auth-button-primary {
+.botao-entrar {
     margin-top: 16px;
     background: #11100E;
     color: #FFFFFF;
     box-shadow: 0 3px 0 rgb(62 39 35 / 14%);
 }
 
-.auth-button-primary:hover {
+.botao-entrar:hover {
     background: #3E2723;
     transform: translateY(-1px);
 }
-.auth-button-primary:active {
+.botao-entrar:active {
     transform: translateY(1px);
     box-shadow: none;
 }
-.auth-button:disabled {
+.botao-login:disabled {
     opacity: 0.65;
     cursor: wait;
     transform: none;
 }
 
-.auth-feedback {
+.aviso-login {
     min-height: 40px;
     margin: 14px 0 0;
     color: #8B3025;
@@ -166,45 +166,45 @@ a {
     overflow-wrap: anywhere;
 }
 
-.auth-feedback[data-tone="info"] {
+.aviso-login[data-tone="info"] {
     color: #62584E;
 }
-.auth-feedback:empty {
+.aviso-login:empty {
     display: none;
 }
 
-.auth-footer {
+.rodape-login {
     margin-top: auto;
     padding-top: 32px;
     text-align: center;
 }
 
-.auth-footer p {
+.rodape-login p {
     margin: 0 0 12px;
     color: #756D65;
     font-size: 13px;
     line-height: 1.5;
 }
 
-.auth-button-secondary {
+.botao-criar-conta {
     justify-content: space-between;
     border-color: #3E2723;
     background: transparent;
     color: #3E2723;
 }
 
-.auth-button-secondary svg {
+.botao-criar-conta svg {
     flex-shrink: 0;
     transition: transform 160ms ease;
 }
-.auth-button-secondary:hover {
+.botao-criar-conta:hover {
     background: #3E2723;
     color: #FFFFFF;
 }
-.auth-button-secondary:hover svg {
+.botao-criar-conta:hover svg {
     transform: translateX(3px);
 }
-.auth-button-secondary:active {
+.botao-criar-conta:active {
     transform: translateY(1px);
 }
 
@@ -213,7 +213,7 @@ a {
     outline-offset: 4px;
 }
 
-.visually-hidden {
+.texto-escondido {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -226,11 +226,11 @@ a {
 }
 
 @media (min-height: 700px) {
-    .auth-shell {
+    .pagina-login {
         padding-top: 32px;
         padding-bottom: 40px;
     }
-    .auth-brand {
+    .marca-login {
         margin-bottom: 32px;
     }
 }

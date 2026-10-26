@@ -1,10 +1,10 @@
-const form = document.querySelector('#signup-form');
+const form = document.querySelector('#formulario-cadastro');
 const nameInput = document.querySelector('#name');
 const emailInput = document.querySelector('#email');
-const passwordInput = document.querySelector('#password');
-const passwordToggle = document.querySelector('.password-toggle');
+const passwordInput = document.querySelector('#senha');
+const passwordToggle = document.querySelector('.mostrar-senha');
 const submitButton = form.querySelector('[type="submit"]');
-const feedback = document.querySelector('#signup-feedback');
+const feedback = document.querySelector('#aviso-cadastro');
 let submitting = false;
 
 try {
@@ -13,7 +13,7 @@ try {
     if (savedEmail) {
         emailInput.value = savedEmail;
         if (emailInput.validity.valid) {
-            const notice = document.querySelector('#signup-notice');
+            const notice = document.querySelector('#mensagem-cadastro');
             notice.textContent = 'Complete seus dados para criar sua conta com este e-mail.';
             notice.hidden = false;
         } else {
