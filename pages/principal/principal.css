@@ -325,6 +325,10 @@ body:has(#bebidas-alternativas:target) .menu-categorias a[href="#bebidas-alterna
     font-size: 16px;
     line-height: 1.6;
 }
+.endereco-entrega > div {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
 .endereco-entrega img {
     flex-shrink: 0;
     margin-top: 2px;
@@ -836,6 +840,55 @@ body:has(dialog[open]) {
     color: var(--color-white);
     font-size: 11px;
     line-height: 16px;
+}
+.painel-endereco {
+    width: min(480px, calc(100% - 32px));
+    max-height: calc(100svh - 32px);
+    margin: auto;
+    padding: 32px 24px 24px;
+    overflow: auto;
+    border: 1px solid var(--color-line);
+    background: var(--color-background);
+}
+.painel-endereco > .fechar-painel {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+.painel-endereco h2 {
+    margin: 0 32px 28px 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+#formulario-endereco {
+    display: grid;
+    gap: 12px;
+}
+#formulario-endereco label {
+    font-size: 14px;
+}
+#formulario-endereco input {
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    margin-bottom: 8px;
+    padding: 12px;
+    border: 1px solid var(--color-line);
+    border-radius: 0;
+    background: var(--color-white);
+    color: inherit;
+}
+#formulario-endereco .botao-principal {
+    margin-top: 12px;
+    border-radius: 0;
+}
+.aviso-endereco {
+    color: #5C0002;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.aviso-endereco:empty {
+    display: none;
 }
 .detalhes-produto {
     position: fixed;

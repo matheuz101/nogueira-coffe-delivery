@@ -1,0 +1,53 @@
+.status-pedido > span { color: #5C0002; }
+
+.modal-rastreador {
+    width: min(800px, calc(100% - 48px));
+    max-height: calc(100svh - 48px);
+    margin: auto;
+    padding: 36px 32px;
+    overflow: auto;
+    border: 0;
+    background: white;
+    color: inherit;
+    font-size: 24px;
+    line-height: 1.25;
+}
+.modal-rastreador::backdrop { background: rgb(23 20 17 / .45); }
+.modal-rastreador h2 { margin: 0 40px 44px 0; font-size: 25px; font-weight: 600; }
+.fechar-rastreador { position: absolute; top: 22px; right: 24px; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; font-size: 36px; line-height: 1; }
+.fechar-rastreador:hover { background: #FBF5EE; }
+.resumo-rastreador { display: grid; gap: 18px; }
+.resumo-rastreador p { margin: 0; }
+.resumo-rastreador strong { margin-right: 10px; font-weight: 600; }
+.resumo-rastreador p:first-child span { color: #5C0002; }
+.titulo-progresso { margin: 18px 0 20px; font-size: inherit; font-weight: 600; }
+.progresso-entrega { margin: 0; padding: 0; list-style: none; }
+.etapa-entrega { position: relative; display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 19px; padding-bottom: 30px; }
+.etapa-entrega:last-child { padding-bottom: 0; }
+.etapa-entrega h4 { margin: 0; font-size: inherit; font-weight: 600; }
+.icone-etapa { display: block; margin-top: 4px; }
+.conector-etapa { position: absolute; top: 52px; bottom: 12px; left: 14px; width: 3px; overflow: hidden; }
+.conector-etapa img { position: absolute; top: 0; left: 3px; display: block; transform-origin: top left; transform: rotate(90deg); }
+.etapa-entrega time { display: block; margin-top: 16px; }
+.etapa-entrega p { margin: 16px 0 0; }
+.endereco-rastreador { font-style: normal; overflow-wrap: anywhere; }
+
+@media (max-width: 1200px) {
+    .modal-rastreador { width: min(640px, calc(100% - 40px)); padding: 28px; font-size: 18px; line-height: 1.5; }
+    .modal-rastreador h2 { margin-bottom: 28px; font-size: 22px; }
+    .fechar-rastreador { top: 18px; right: 16px; }
+    .resumo-rastreador { gap: 12px; }
+    .resumo-rastreador strong { margin-right: 6px; }
+    .etapa-entrega { gap: 16px; padding-bottom: 24px; }
+    .etapa-entrega time, .etapa-entrega p { margin-top: 8px; }
+    .conector-etapa { top: 44px; }
+}
+
+@media (max-width: 640px) {
+    .modal-rastreador { width: calc(100% - 24px); max-height: calc(100svh - 24px); padding: 24px 20px; font-size: 14px; }
+    .modal-rastreador h2 { margin-bottom: 24px; font-size: 18px; }
+    .fechar-rastreador { top: 12px; right: 8px; }
+    .etapa-entrega { gap: 12px; padding-bottom: 20px; }
+    .icone-etapa { margin-top: 0; }
+    .conector-etapa { top: 40px; }
+}

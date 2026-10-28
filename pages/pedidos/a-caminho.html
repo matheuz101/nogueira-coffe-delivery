@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FBF5EE">
+    <meta name="description" content="Veja seus pedidos a caminho e acompanhe a entrega na Nogueira Coffe.">
+    <title>Pedidos a caminho - Nogueira Coffe</title>
+    <link rel="stylesheet" href="pedidos.css">
+    <link rel="stylesheet" href="a-caminho.css">
+    <script src="a-caminho.js" defer></script>
+</head>
+<body>
+    <a class="pular-conteudo" href="#a-caminho">Ir para os pedidos</a>
+    <header class="cabecalho-pedidos">
+        <h1>Meus Pedidos</h1>
+    </header>
+
+    <div class="pagina-pedidos">
+        <aside class="lateral-pedidos">
+            <nav class="menu-pedidos" aria-label="Navegação dos pedidos">
+                <a href="../principal/principal.html">Voltar</a>
+                <a href="pedidos.html">Entregues</a>
+                <a href="#a-caminho" aria-current="page">A caminho</a>
+            </nav>
+        </aside>
+
+        <main class="conteudo-pedidos" id="a-caminho">
+            <h2>Pedidos a caminho</h2>
+            <!-- Pedido de exemplo do protótipo. -->
+            <div class="lista-pedidos">
+                <article class="pedido" aria-labelledby="pedido-12345">
+                    <header class="resumo-pedido">
+                        <h3 id="pedido-12345">Pedido <span>#12345</span></h3>
+                        <p>Realizado em: <time datetime="2026-10-26">26/10/2026</time></p>
+                        <p class="total-pedido">Total: <strong><data value="14.00">R$ 14,00</data></strong></p>
+                    </header>
+                    <div class="divisor-pedido" aria-hidden="true"><img src="../../imgs/pedidos-divisor.svg" alt=""></div>
+                    <div class="corpo-pedido">
+                        <p class="status-pedido"><strong>Status:</strong> <span>Enviado</span></p>
+                        <ul class="itens-pedido">
+                            <li class="item-pedido">
+                                <img src="../../imgs/paodequeijo.jpg" width="150" height="150" alt="Pão de Queijo Artesanal" decoding="async">
+                                <div>
+                                    <h4>Pão de Queijo Artesanal</h4>
+                                    <data value="6.50">R$ 6,50</data>
+                                </div>
+                            </li>
+                            <li class="item-pedido">
+                                <img src="../../imgs/cafe-expresso.jpg" width="150" height="150" alt="Café Expresso" decoding="async">
+                                <div>
+                                    <h4>Café Expresso</h4>
+                                    <data value="7.50">R$ 7,50</data>
+                                </div>
+                            </li>
+                        </ul>
+                        <footer class="acoes-pedido">
+                            <button class="botao-pedido" id="rastrear-entrega" type="button" aria-haspopup="dialog" aria-controls="acompanhamento-entrega">Rastrear entrega</button>
+                            <button class="botao-pedido" type="button">Ver detalhes</button>
+                        </footer>
+                    </div>
+                </article>
+            </div>
+        </main>
+    </div>
+
+    <!-- Acompanhamento de exemplo, sem atualização em tempo real. -->
+    <dialog class="modal-rastreador" id="acompanhamento-entrega" aria-labelledby="titulo-rastreador">
+        <button class="fechar-rastreador" type="button" aria-label="Fechar acompanhamento" autofocus>×</button>
+        <h2 id="titulo-rastreador">Acompanhar Entrega</h2>
+        <div class="resumo-rastreador">
+            <p><strong>Status:</strong> <span>Entregador saiu para entrega</span></p>
+            <p><strong>Previsão de Chegada:</strong> 19:15 - 19:25</p>
+        </div>
+        <h3 class="titulo-progresso">Progresso</h3>
+        <ol class="progresso-entrega">
+            <li class="etapa-entrega">
+                <img class="icone-etapa" src="../../imgs/Check circle.svg" width="30" height="30" alt="" aria-hidden="true">
+                <span class="conector-etapa" aria-hidden="true"><img src="../../imgs/rastreador-linha.svg" alt=""></span>
+                <div>
+                    <h4>Realizado</h4>
+                    <time datetime="2026-10-26T18:45">18:45</time>
+                    <p>Seu pedido está sendo confirmado com a loja.</p>
+                </div>
+            </li>
+            <li class="etapa-entrega">
+                <img class="icone-etapa" src="../../imgs/Check circle.svg" width="30" height="30" alt="" aria-hidden="true">
+                <span class="conector-etapa" aria-hidden="true"><img src="../../imgs/rastreador-linha.svg" alt=""></span>
+                <div>
+                    <h4>Confirmado</h4>
+                    <time datetime="2026-10-26T18:45">18:45</time>
+                    <p>A loja está preparando o pedido.</p>
+                </div>
+            </li>
+            <li class="etapa-entrega">
+                <img class="icone-etapa" src="../../imgs/Check circle.svg" width="30" height="30" alt="" aria-hidden="true">
+                <span class="conector-etapa" aria-hidden="true"><img src="../../imgs/rastreador-linha.svg" alt=""></span>
+                <div>
+                    <h4>Pedido a caminho</h4>
+                    <time datetime="2026-10-26T19:00">19:00</time>
+                    <p>Entregador: João Marcos<br>Placa: AAA00A0</p>
+                </div>
+            </li>
+            <li class="etapa-entrega">
+                <img class="icone-etapa" src="../../imgs/Check circle.svg" width="30" height="30" alt="" aria-hidden="true">
+                <div>
+                    <h4>Pronto</h4>
+                    <time datetime="2026-10-26T19:15">19:15</time>
+                    <p>Entregue em:</p>
+                    <address class="endereco-rastreador"><span data-address-street></span><br><span data-address-city></span></address>
+                </div>
+            </li>
+        </ol>
+    </dialog>
+</body>
+</html>

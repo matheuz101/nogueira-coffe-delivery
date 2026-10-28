@@ -39,9 +39,8 @@ body:has(dialog[open]) { overflow: hidden; }
 .lateral-pedidos { padding: 0 60px 40px 0; border-right: 1px solid var(--borda-pedido); }
 .menu-pedidos { position: sticky; top: 20px; display: grid; }
 .menu-pedidos :where(a, button) { display: flex; align-items: center; width: 100%; min-height: 55px; padding: 12px 28px; border: 0; background: transparent; text-align: left; font-size: 20px; line-height: 1.5; }
-.menu-pedidos .link-entregues { border-left: 4px solid #171411; padding-left: 24px; background: white; }
+.menu-pedidos [aria-current="page"] { border-left: 4px solid #171411; padding-left: 24px; background: white; }
 .menu-pedidos a:hover { background: #F0E7DD; }
-.menu-pedidos button:disabled { color: #625B54; }
 .conteudo-pedidos { width: 100%; max-width: 1140px; padding: 64px 16px 96px 44px; }
 .conteudo-pedidos > h2 { margin: 0 0 47px; font-size: 32px; font-weight: 600; line-height: 1.2; }
 .lista-pedidos { display: grid; grid-template-columns: minmax(0, 1fr); gap: 52px; }
@@ -134,7 +133,7 @@ body:has(dialog[open]) { overflow: hidden; }
     .pagina-pedidos { grid-template-columns: 224px minmax(0, 1fr); min-height: calc(100svh - 72px); }
     .lateral-pedidos { padding-right: 40px; }
     .menu-pedidos :where(a, button) { min-height: 44px; padding: 12px 24px; font-size: 14px; }
-    .menu-pedidos .link-entregues { padding-left: 20px; }
+    .menu-pedidos [aria-current="page"] { padding-left: 20px; }
     .conteudo-pedidos { padding: 40px 24px 72px 32px; }
     .conteudo-pedidos > h2 { margin-bottom: 32px; font-size: 24px; }
     .lista-pedidos { gap: 32px; }
@@ -162,11 +161,11 @@ body:has(dialog[open]) { overflow: hidden; }
 @media (max-width: 640px) {
     .cabecalho-pedidos { min-height: 64px; padding: 18px 24px; }
     .cabecalho-pedidos h1 { font-size: 22px; }
-    .pagina-pedidos { grid-template-columns: minmax(0, 1fr); min-height: calc(100svh - 64px); }
+    .pagina-pedidos { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; min-height: calc(100svh - 64px); }
     .lateral-pedidos { padding: 12px; border-right: 0; border-bottom: 1px solid #BCB4AB; }
     .menu-pedidos { position: static; display: flex; flex-wrap: wrap; gap: 4px; }
     .menu-pedidos :where(a, button) { width: auto; padding: 12px; font-size: 13px; }
-    .menu-pedidos .link-entregues { padding-left: 8px; }
+    .menu-pedidos [aria-current="page"] { padding-left: 8px; }
     .conteudo-pedidos { padding: 32px 16px 64px; }
     .conteudo-pedidos > h2 { margin-bottom: 24px; font-size: 21px; }
     .lista-pedidos { gap: 24px; }
