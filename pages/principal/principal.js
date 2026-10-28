@@ -202,3 +202,7 @@ try {
 } catch {
 }
 atualizarCarrinho();
+
+if (new URLSearchParams(window.location.search).get('carrinho') === 'aberto') {
+    abrirPainel(painelCarrinho, botaoCarrinho);
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FBF5EE">
+    <meta name="description" content="Consulte seus pedidos entregues, veja os recibos e peça seus favoritos de novo na Nogueira Coffe.">
+    <title>Meus Pedidos - Nogueira Coffe</title>
+    <link rel="stylesheet" href="pedidos.css">
+    <script src="pedidos.js" defer></script>
+</head>
+<body>
+    <a class="pular-conteudo" href="#entregues">Ir para os pedidos</a>
+    <header class="cabecalho-pedidos">
+        <h1>Meus Pedidos</h1>
+    </header>
+
+    <div class="pagina-pedidos">
+        <aside class="lateral-pedidos">
+            <nav class="menu-pedidos" aria-label="Navegação dos pedidos">
+                <a href="../principal/principal.html">Voltar</a>
+                <a class="link-entregues" href="#entregues" aria-current="page">Entregues</a>
+                <button type="button" disabled>A caminho</button>
+            </nav>
+        </aside>
+
+        <main class="conteudo-pedidos" id="entregues">
+            <h2>Pedidos Entregues</h2>
+            <!-- Pedidos de exemplo do protótipo, até a integração com o histórico de compras. -->
+            <div class="lista-pedidos">
+                <article class="pedido" data-order-id="12345" aria-labelledby="pedido-12345">
+                    <header class="resumo-pedido">
+                        <h3 id="pedido-12345">Pedido <span>#12345</span></h3>
+                        <p>Realizado em: <time datetime="2026-10-26" data-order-date>26/10/2026</time></p>
+                        <p class="total-pedido">Total: <strong><data value="14.00">R$ 14,00</data></strong></p>
+                    </header>
+                    <div class="divisor-pedido" aria-hidden="true"><img src="../../imgs/pedidos-divisor.svg" alt=""></div>
+                    <div class="corpo-pedido">
+                        <p class="status-pedido"><strong>Status:</strong> <span>Entregue em <time datetime="2026-10-26">26/10/2026</time></span></p>
+                        <ul class="itens-pedido">
+                            <li class="item-pedido" data-product-id="pao-de-queijo" data-quantity="1">
+                                <img src="../../imgs/paodequeijo.jpg" width="150" height="150" alt="Pão de Queijo Artesanal" decoding="async">
+                                <div>
+                                    <h4 data-product-name>Pão de Queijo Artesanal</h4>
+                                    <data value="6.50" data-product-price>R$ 6,50</data>
+                                </div>
+                            </li>
+                            <li class="item-pedido" data-product-id="cafe-expresso" data-quantity="1">
+                                <img src="../../imgs/cafe-expresso.jpg" width="150" height="150" alt="Café Expresso" decoding="async">
+                                <div>
+                                    <h4 data-product-name>Café Expresso</h4>
+                                    <data value="7.50" data-product-price>R$ 7,50</data>
+                                </div>
+                            </li>
+                        </ul>
+                        <footer class="acoes-pedido">
+                            <button class="botao-pedido" type="button" data-action="receipt" aria-label="Ver recibo do pedido 12345" aria-haspopup="dialog" aria-controls="recibo-pedido">Recibo impresso</button>
+                            <button class="botao-pedido" type="button" data-action="reorder" aria-label="Pedir de novo os itens do pedido 12345">Pedir de novo</button>
+                        </footer>
+                    </div>
+                </article>
+
+                <article class="pedido" data-order-id="27326" aria-labelledby="pedido-27326">
+                    <header class="resumo-pedido">
+                        <h3 id="pedido-27326">Pedido <span>#27326</span></h3>
+                        <p>Realizado em: <time datetime="2026-10-10" data-order-date>10/10/2026</time></p>
+                        <p class="total-pedido">Total: <strong><data value="30.40">R$ 30,40</data></strong></p>
+                    </header>
+                    <div class="divisor-pedido" aria-hidden="true"><img src="../../imgs/pedidos-divisor.svg" alt=""></div>
+                    <div class="corpo-pedido">
+                        <p class="status-pedido"><strong>Status:</strong> <span>Entregue em <time datetime="2026-10-10">10/10/2026</time></span></p>
+                        <ul class="itens-pedido">
+                            <li class="item-pedido" data-product-id="muffin-de-morango" data-quantity="1">
+                                <img src="../../imgs/muffin.jpg" width="150" height="150" alt="Muffin de Morango" loading="lazy" decoding="async">
+                                <div>
+                                    <h4 data-product-name>Muffin de Morango</h4>
+                                    <data value="17.20" data-product-price>R$ 17,20</data>
+                                </div>
+                            </li>
+                            <li class="item-pedido" data-product-id="frappuccino" data-quantity="1">
+                                <img src="../../imgs/frapuccino.jpg" width="150" height="150" alt="Frappuccino" loading="lazy" decoding="async">
+                                <div>
+                                    <h4 data-product-name>Frappuccino</h4>
+                                    <data value="13.20" data-product-price>R$ 13,20</data>
+                                </div>
+                            </li>
+                        </ul>
+                        <footer class="acoes-pedido">
+                            <button class="botao-pedido" type="button" data-action="receipt" aria-label="Ver recibo do pedido 27326" aria-haspopup="dialog" aria-controls="recibo-pedido">Recibo impresso</button>
+                            <button class="botao-pedido" type="button" data-action="reorder" aria-label="Pedir de novo os itens do pedido 27326">Pedir de novo</button>
+                        </footer>
+                    </div>
+                </article>
+            </div>
+            <p class="aviso-pedidos" role="status" aria-live="polite" data-order-status></p>
+        </main>
+    </div>
+
+    <dialog class="modal-recibo" id="recibo-pedido" aria-labelledby="titulo-recibo" aria-describedby="descricao-recibo">
+        <div class="cabecalho-recibo">
+            <div>
+                <h2 id="titulo-recibo">Recibo do pedido</h2>
+                <p id="descricao-recibo">Uma cópia da sua compra, sempre à mão.</p>
+            </div>
+            <button class="fechar-recibo" type="button" data-action="close-receipt" aria-label="Fechar recibo" autofocus>×</button>
+        </div>
+        <div class="impressora" data-stage="processing" aria-label="Impressora de recibos">
+            <div class="maquina-recibo">
+                <div class="marca-impressora"><span>NOGUEIRA COFFE</span><span aria-hidden="true">●</span></div>
+                <div class="tela-impressora">
+                    <div class="identificacao-recibo"><span>Pedido <span data-receipt-id></span></span><strong data-receipt-total></strong></div>
+                    <p class="estado-impressora" role="status" aria-live="polite"><span class="indicador-impressora" aria-hidden="true"></span><span data-printer-status>Preparando seu recibo</span></p>
+                </div>
+                <div class="saida-impressora" aria-hidden="true"></div>
+            </div>
+            <div class="area-papel">
+                <article class="papel-recibo" aria-label="Comprovante da compra" aria-hidden="true">
+                    <header class="marca-recibo"><strong>NOGUEIRA COFFE</strong><span>Seu café de cada dia.</span></header>
+                    <p class="numero-recibo">RECIBO · PEDIDO <span data-receipt-id></span></p>
+                    <dl class="dados-recibo"><div><dt>Realizado em</dt><dd data-receipt-date></dd></div><div><dt>Status</dt><dd>Entregue</dd></div></dl>
+                    <ul class="itens-recibo" data-receipt-items></ul>
+                    <p class="total-recibo"><span>Total da compra</span><strong data-receipt-total></strong></p>
+                    <p class="agradecimento-recibo">Obrigado pela sua visita!<br>Até o próximo café.</p>
+                    <p class="tipo-recibo">Comprovante de compra · Sem valor fiscal</p>
+                </article>
+            </div>
+        </div>
+        <div class="acoes-recibo">
+            <button class="botao-pedido" type="button" data-action="replay-receipt">Reimprimir</button>
+            <button class="botao-pedido botao-imprimir" type="button" data-action="print-receipt" disabled>Imprimir recibo</button>
+        </div>
+    </dialog>
+</body>
+</html>
