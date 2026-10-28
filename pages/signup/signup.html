@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#FBF5EE">
     <title>Sign up - Nogueira Coffe</title>
     <link rel="stylesheet" href="signup.css">
+    <script src="signup.js"></script>
 </head>
 <body>
     <main class="pagina-cadastro">
@@ -25,7 +26,7 @@
             </div>
             <div class="campo-cadastro">
                 <label class="texto-escondido" for="telefone">Phone number</label>
-                <input id="telefone" name="phone" type="tel" autocomplete="tel" placeholder="Enter phone number" required maxlength="25">
+                <input id="telefone" maxlength="19" oninput="mascara_tel()" name="phone" type="tel" placeholder="Enter phone number">
             </div>
             <div class="campo-cadastro">
                 <label class="texto-escondido" for="senha">Password</label>

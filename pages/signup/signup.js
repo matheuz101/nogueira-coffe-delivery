@@ -7,6 +7,39 @@ const submitButton = form.querySelector('[type="submit"]');
 const feedback = document.querySelector('#aviso-cadastro');
 let submitting = false;
 
+function mascara_tel(){
+    const campo = document.getElementById('telefone');
+    let Tel = campo.value;
+
+    if (Tel[0] != "+"){
+        if(Tel[0] != undefined){
+            Tel = "+55 (" + Tel;
+        }
+    }
+
+    if (Tel[7] != ")"){
+        if(Tel[7] != undefined){
+            Tel = Tel.slice(0,7) + ")" + Tel.slice(7);
+        }
+    }
+
+    if (Tel[8] != " ")
+    {
+        if(Tel[8] != undefined){
+            Tel = Tel.slice(0,8) + " " + Tel.slice(8);
+        }
+    }
+
+    if (Tel[14] != "-")
+    {
+        if(Tel[14] != undefined){
+            Tel = Tel.slice(0,14) + "-" + Tel.slice(14);
+        }
+    }
+
+    campo.value = Tel;
+}
+
 try {
     const savedEmail = sessionStorage.getItem('nogueira.signupEmail');
     sessionStorage.removeItem('nogueira.signupEmail');
