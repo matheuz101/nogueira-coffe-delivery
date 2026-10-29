@@ -9,13 +9,12 @@ botaoRastrear.addEventListener('click', function () {
     cidade.textContent = '';
     try {
         const endereco = JSON.parse(sessionStorage.getItem('nogueira-coffe-address'));
-        if (typeof endereco?.rua === 'string' && typeof endereco?.cidade === 'string'
-            && endereco.rua.trim() && endereco.cidade.trim()) {
+        if (typeof endereco?.rua === 'string' && typeof endereco?.cidade === 'string' && endereco.rua.trim() && endereco.cidade.trim()) {
             rua.textContent = endereco.rua;
             cidade.textContent = endereco.cidade;
         }
     } catch {
-        // Sem um endereço válido nesta aba, o acompanhamento fica sem endereço.
+        // se não tiver endereço o acompanhamento no botão de rastrear fica vazio
     }
     modalRastreador.showModal();
     modalRastreador.scrollTop = 0;

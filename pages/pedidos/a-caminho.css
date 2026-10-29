@@ -1,4 +1,6 @@
-.status-pedido > span { color: #5C0002; }
+.status-pedido > span { 
+    color: #5C0002; 
+}
 
 .modal-rastreador {
     width: min(800px, calc(100% - 48px));
