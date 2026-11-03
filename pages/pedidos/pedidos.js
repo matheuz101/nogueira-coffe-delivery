@@ -59,7 +59,6 @@ function imprimirRecibo() {
     temporizadorImpressao = setTimeout(function () {
         impressora.dataset.stage = 'printing';
         estadoImpressora.textContent = 'Imprimindo seu recibo';
-        // Garante a conclusão também se a animação for interrompida pelo navegador.
         temporizadorImpressao = setTimeout(concluirImpressao, 1900);
     }, 350);
 }
