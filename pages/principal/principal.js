@@ -8,6 +8,9 @@ const totalCarrinho = document.querySelector('[data-cart-total]');
 const contadorCarrinho = document.querySelector('[data-cart-count]');
 const avisoCarrinho = document.querySelector('[data-cart-status]');
 const botaoCarrinho = document.querySelector('.botao-carrinho');
+const campoBusca = document.querySelector('#buscar-produto');
+const cardsProdutos = document.querySelectorAll('.produto');
+const secoesProdutos = document.querySelectorAll('.secao-produtos');
 const chaveCarrinho = 'nogueira-coffe-cart';
 const chaveEndereco = 'nogueira-coffe-address';
 const produtos = {};
@@ -251,3 +254,25 @@ atualizarCarrinho();
 if (new URLSearchParams(window.location.search).get('carrinho') === 'aberto') {
     abrirPainel(painelCarrinho, botaoCarrinho);
 }
+
+
+function normalizarTexto(texto) {
+    return texto
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+}
+
+campoBusca.addEventListener('input', function () {
+    const busca = normalizarTexto(campoBusca.value);
+
+    cardsProdutos.forEach(function (card) {
+        const nome = card.querySelector('[data-product-name]').textContent;
+        card.hidden = !normalizarTexto(nome).includes(busca);
+    });
+
+    secoesProdutos.forEach(function (secao) {
+        secao.hidden = !secao.querySelector('.produto:not([hidden])');
+    });
+});

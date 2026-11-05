@@ -14,6 +14,10 @@
     background: var(--color-background);
 }
 
+[hidden] {
+    display: none !important;
+}
+
 * {
     box-sizing: border-box;
 }
