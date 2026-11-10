@@ -213,6 +213,8 @@ document.addEventListener('click', function (evento) {
         const id = botao.dataset.productId;
         alterarQuantidade(id, (carrinho[id] || 0) + 1);
         abrirPainel(painelCarrinho, botao);
+    } else if (botao.dataset.action === 'checkout') {
+        gerarArquivoPedido();
     }
 });
 
@@ -276,3 +278,49 @@ campoBusca.addEventListener('input', function () {
         secao.hidden = !secao.querySelector('.produto:not([hidden])');
     });
 });
+
+function gerarArquivoPedido() {
+    if (Object.keys(carrinho).length === 0) {
+        alert('Seu carrinho está vazio!');
+        return;
+    }
+
+    const produtosPedido = Object.entries(carrinho).map(([id, quantidade]) => {
+        const produto = produtos[id];
+
+        const valorUnitario = produto.preco / 100;
+        const subtotal = (produto.preco * quantidade) / 100;
+
+        return {
+            nome: produto.nome,
+            valorUnitario: Number(valorUnitario.toFixed(2)),
+            quantidade: quantidade,
+            subtotal: Number(subtotal.toFixed(2))
+        };
+    });
+
+    const valorTotal = produtosPedido.reduce(
+        (total, produto) => total + produto.subtotal,
+        0
+    );
+
+    const pedido = {
+        dataPedido: new Date().toISOString(),
+        produtos: produtosPedido,
+        valorTotal: Number(valorTotal.toFixed(2))
+    };
+
+    const arquivo = new Blob(
+        [JSON.stringify(pedido, null, 4)],
+        { type: 'application/json' }
+    );
+
+    const url = URL.createObjectURL(arquivo);
+    const link = document.createElement('a');
+
+    link.href = url;
+    link.download = 'pedido.json';
+    link.click();
+
+    URL.revokeObjectURL(url);
+}
