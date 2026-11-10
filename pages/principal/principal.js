@@ -13,6 +13,7 @@ const cardsProdutos = document.querySelectorAll('.produto');
 const secoesProdutos = document.querySelectorAll('.secao-produtos');
 const chaveCarrinho = 'nogueira-coffe-cart';
 const chaveEndereco = 'nogueira-coffe-address';
+const chavePedidos = 'nogueira-coffe-orders';
 const produtos = {};
 const carrinho = {};
 let botaoOrigem;
@@ -213,8 +214,10 @@ document.addEventListener('click', function (evento) {
         const id = botao.dataset.productId;
         alterarQuantidade(id, (carrinho[id] || 0) + 1);
         abrirPainel(painelCarrinho, botao);
+    } else if (botao.classList.contains('botao-json')) {
+        exportarPedidos();
     } else if (botao.dataset.action === 'checkout') {
-        gerarArquivoPedido();
+        registrarPedido();
     }
 });
 
@@ -279,7 +282,19 @@ campoBusca.addEventListener('input', function () {
     });
 });
 
-function gerarArquivoPedido() {
+function lerPedidosSalvos() {
+    const pedidosSalvos = localStorage.getItem(chavePedidos);
+    if (!pedidosSalvos) return [];
+
+    const pedidos = JSON.parse(pedidosSalvos);
+    if (!Array.isArray(pedidos)) {
+        throw new Error('O histórico de pedidos está em um formato inválido.');
+    }
+
+    return pedidos;
+}
+
+function registrarPedido() {
     if (Object.keys(carrinho).length === 0) {
         alert('Seu carrinho está vazio!');
         return;
@@ -310,8 +325,39 @@ function gerarArquivoPedido() {
         valorTotal: Number(valorTotal.toFixed(2))
     };
 
+    try {
+        const pedidos = lerPedidosSalvos();
+        pedidos.push(pedido);
+        localStorage.setItem(chavePedidos, JSON.stringify(pedidos));
+    } catch {
+        avisoCarrinho.textContent = 'Não foi possível salvar o pedido neste navegador. Verifique o armazenamento e tente novamente.';
+        return;
+    }
+
+    Object.keys(carrinho).forEach(function (id) {
+        delete carrinho[id];
+    });
+    atualizarCarrinho();
+    avisoCarrinho.textContent = 'Pedido salvo. Você já pode montar outro pedido ou exportar todos pelo botão JSON.';
+}
+
+function exportarPedidos() {
+    let pedidos;
+
+    try {
+        pedidos = lerPedidosSalvos();
+    } catch {
+        avisoCarrinho.textContent = 'Não foi possível ler os pedidos salvos neste navegador.';
+        return;
+    }
+
+    if (pedidos.length === 0) {
+        avisoCarrinho.textContent = 'Ainda não há pedidos para exportar.';
+        return;
+    }
+
     const arquivo = new Blob(
-        [JSON.stringify(pedido, null, 4)],
+        [JSON.stringify(pedidos, null, 4)],
         { type: 'application/json' }
     );
 
@@ -319,8 +365,16 @@ function gerarArquivoPedido() {
     const link = document.createElement('a');
 
     link.href = url;
-    link.download = 'pedido.json';
+    link.download = 'pedidos.json';
+    document.body.append(link);
     link.click();
+    link.remove();
 
-    URL.revokeObjectURL(url);
+    window.setTimeout(function () {
+        URL.revokeObjectURL(url);
+    }, 1000);
+
+    avisoCarrinho.textContent = pedidos.length === 1
+        ? '1 pedido exportado no arquivo pedidos.json.'
+        : `${pedidos.length} pedidos exportados no arquivo pedidos.json.`;
 }
